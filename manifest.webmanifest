@@ -1,0 +1,19 @@
+{
+  "name": "Nexluna — محول الوحدات",
+  "short_name": "Nexluna",
+  "description": "منصّة عربية فخمة لتحويل وحدات القياس: 14 فئة و100+ وحدة بدقة فورية، تعمل دون إنترنت.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f7f8fc",
+  "theme_color": "#4f46e5",
+  "categories": ["utilities", "productivity", "education"],
+  "icons": [
+    { "src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

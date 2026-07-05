@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Node (if tooling added later)
+node_modules/
+npm-debug.log*
+
+# Netlify
+.netlify/
+
+# Python cache from build scripts
+__pycache__/
+*.pyc
