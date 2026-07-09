@@ -4,6 +4,7 @@ import os
 from datetime import date
 from build_pages import BASE, ORDER
 from build_blog import ARTICLES
+from build_pairs import PAIRS, slug
 
 TODAY = date.today().isoformat()
 
@@ -11,6 +12,10 @@ TODAY = date.today().isoformat()
 urls = [("/", "1.0", "weekly")]
 for c in ORDER:
     urls.append(("/converters/%s.html" % c, "0.9", "monthly"))
+# Conversion-pair landing pages (Roadmap 1.1)
+urls.append(("/convert/", "0.7", "weekly"))
+for cat, frm, to in PAIRS:
+    urls.append(("/convert/%s.html" % slug(cat, frm, to), "0.8", "monthly"))
 urls.append(("/blog/", "0.7", "weekly"))
 for a in ARTICLES:
     urls.append(("/blog/%s.html" % a["slug"], "0.6", "monthly"))

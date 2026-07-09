@@ -84,6 +84,21 @@
   function fuelToKmL(v, u) { return u === 'kml' ? v : u === 'l100' ? 100 / v : v * 0.425143707; }
   function kmLToUnit(v, u) { return u === 'kml' ? v : u === 'l100' ? 100 / v : v / 0.425143707; }
   function fmt(n) { if (!isFinite(n)) return '—'; var r = Math.round(n * 1e6) / 1e6; return r.toLocaleString('en-US', { maximumFractionDigits: 6 }); }
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Spring-eased count-up — the signature motion moment. Honors reduced-motion. */
+  function countUp(node, from, to) {
+    if (node._raf) cancelAnimationFrame(node._raf);
+    if (REDUCED || !isFinite(from) || !isFinite(to) || from === to) { node.textContent = fmt(to); return; }
+    var dur = 520, t0 = 0;
+    function ease(x) { return 1 - Math.pow(1 - x, 3); } /* easeOutCubic — settles, no linear tell */
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      node.textContent = fmt(from + (to - from) * ease(p));
+      if (p < 1) node._raf = requestAnimationFrame(step); else node.textContent = fmt(to);
+    }
+    node._raf = requestAnimationFrame(step);
+  }
   function ls(k, d) { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } }
   function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   function el(tag, attrs, html) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { e.setAttribute(k, attrs[k]); }); if (html != null) e.innerHTML = html; return e; }
@@ -98,6 +113,7 @@
 
   /* ---------- Mount ---------- */
   function mount(root) {
+    root.innerHTML = ''; /* clear any skeleton placeholder */
     var only = root.getAttribute('data-only');
     var cats = only ? [only] : Object.keys(DATA);
     var current = cats[0];
@@ -131,7 +147,9 @@
 
     var result = el('div', { class: 'result', id: 'nx-result', role: 'status', 'aria-live': 'polite' }, '<span class="hint">أدخل قيمة لعرض النتيجة</span>');
     var copyBtn = el('button', { class: 'copy-result', type: 'button', 'aria-label': 'نسخ النتيجة', title: 'نسخ النتيجة' }); copyBtn.innerHTML = ic('copy'); copyBtn.style.display = 'none';
+    var shareBtn = el('button', { class: 'copy-result share-result', type: 'button', 'aria-label': 'نسخ رابط المشاركة', title: 'نسخ رابط المشاركة' }); shareBtn.innerHTML = ic('share'); shareBtn.style.display = 'none';
     result.appendChild(copyBtn);
+    result.appendChild(shareBtn);
 
     var info = el('div', { class: 'info-block' });
 
@@ -168,18 +186,31 @@
       if (d.special === 'fuel') return kmLToUnit(fuelToKmL(v, fromSel.value), toSel.value);
       return v * d.base[fromSel.value] / d.base[toSel.value];
     }
+    function shareURL(v) {
+      var base = window.location.origin + window.location.pathname;
+      var qs = 'from=' + encodeURIComponent(fromSel.value) + '&to=' + encodeURIComponent(toSel.value) + '&v=' + encodeURIComponent(v);
+      return base + '?' + qs;
+    }
+    var prevOut = null;
     function convert(pushHist) {
       var raw = fromInput.value.trim();
-      if (raw === '') { toInput.value = ''; fromInput.removeAttribute('aria-invalid'); result.className = 'result'; result.innerHTML = '<span class="hint">أدخل قيمة لعرض النتيجة</span>'; result.appendChild(copyBtn); copyBtn.style.display = 'none'; return; }
+      if (raw === '') { toInput.value = ''; prevOut = null; fromInput.removeAttribute('aria-invalid'); result.className = 'result'; result.innerHTML = '<span class="hint">أدخل قيمة لعرض النتيجة</span>'; result.appendChild(copyBtn); result.appendChild(shareBtn); copyBtn.style.display = 'none'; shareBtn.style.display = 'none'; return; }
       var v = parseFloat(raw);
-      if (isNaN(v)) { fromInput.setAttribute('aria-invalid', 'true'); result.className = 'result error'; result.innerHTML = '<span class="value">قيمة غير صحيحة — أدخل رقمًا</span>'; result.appendChild(copyBtn); copyBtn.style.display = 'none'; toInput.value = ''; return; }
+      if (isNaN(v)) { fromInput.setAttribute('aria-invalid', 'true'); prevOut = null; result.className = 'result error'; result.innerHTML = '<span class="value">قيمة غير صحيحة — أدخل رقمًا</span>'; result.appendChild(copyBtn); result.appendChild(shareBtn); copyBtn.style.display = 'none'; shareBtn.style.display = 'none'; toInput.value = ''; return; }
       fromInput.removeAttribute('aria-invalid');
       var out = calc(v); toInput.value = fmt(out);
       var fu = fromSel.options[fromSel.selectedIndex].text, tu = toSel.options[toSel.selectedIndex].text;
       lastResult = fmt(v) + ' ' + fu + ' = ' + fmt(out) + ' ' + tu;
       result.className = 'result';
-      result.innerHTML = '<div><span class="value">' + fmt(v) + ' → ' + fmt(out) + '</span><div class="hint">' + fu + ' = ' + tu + '</div></div>';
-      result.appendChild(copyBtn); copyBtn.style.display = 'grid';
+      /* Signature: the output number count-ups from its previous value (spring-eased). */
+      result.innerHTML = '<div class="result-inner"><span class="result-num"><span class="result-out" aria-live="off">0</span></span><div class="hint"><span class="result-in">' + fmt(v) + '</span> ' + fu + ' &rarr; ' + tu + '</div></div>';
+      result.appendChild(copyBtn); result.appendChild(shareBtn); copyBtn.style.display = 'grid'; shareBtn.style.display = 'grid';
+      var outNode = result.querySelector('.result-out');
+      countUp(outNode, prevOut === null ? out : prevOut, out);
+      result.setAttribute('aria-label', lastResult);
+      prevOut = out;
+      /* Keep the address bar shareable without reloading (Roadmap 1.4). */
+      if (pushHist) { try { history.replaceState(null, '', shareURL(v)); } catch (e) {} }
       if (pushHist) addHistory(v, out, fu, tu);
     }
     function addHistory(v, out, fu, tu) {
@@ -216,6 +247,13 @@
     toSel.addEventListener('change', function () { convert(true); });
     swap.addEventListener('click', function () { var t = fromSel.value; fromSel.value = toSel.value; toSel.value = t; if (toInput.value) fromInput.value = toInput.value.replace(/,/g, ''); convert(true); });
     copyBtn.addEventListener('click', function () { if (!toInput.value) return; navigator.clipboard && navigator.clipboard.writeText(lastResult).then(function () { toast('تم نسخ النتيجة ✓'); }).catch(function () { toast('تعذّر النسخ'); }); });
+    shareBtn.addEventListener('click', function () {
+      if (!toInput.value) return;
+      var v = parseFloat(fromInput.value); if (isNaN(v)) return;
+      var url = shareURL(v);
+      if (navigator.share) { navigator.share({ title: 'Nexluna', text: lastResult, url: url }).catch(function () {}); return; }
+      navigator.clipboard && navigator.clipboard.writeText(url).then(function () { toast('تم نسخ رابط المشاركة ✓'); }).catch(function () { toast('تعذّر النسخ'); });
+    });
     favBtn.addEventListener('click', function () { var favs = ls(STORE.fav, []); var i = favs.indexOf(current); if (i === -1) { favs.push(current); toast('أُضيفت إلى المفضّلة ★'); } else { favs.splice(i, 1); toast('أُزيلت من المفضّلة'); } save(STORE.fav, favs); updateFav(); });
     clearBtn.addEventListener('click', function () { save(STORE.hist, []); renderHistory(); toast('تم مسح السجل'); });
 
@@ -226,7 +264,36 @@
     });
 
     fillUnits(); renderInfo(); updateFav(); renderHistory();
+
+    /* Deep-link prefill: /converters/x.html?from=&to=&v=  (Roadmap 1.4).
+       Lets pair pages & shared links open the converter pre-filled. */
+    (function applyDeepLink() {
+      try {
+        var q = new URLSearchParams(window.location.search);
+        var qc = q.get('cat'), qf = q.get('from'), qt = q.get('to'), qv = q.get('v');
+        if (qc && !only && DATA[qc]) { selectCat(qc); }
+        var d = DATA[current];
+        var has = function (k) { return d && d.base && (d.base[k] !== undefined) || (d && d.temp && ['C', 'F', 'K'].indexOf(k) !== -1); };
+        if (qf && has(qf)) fromSel.value = qf;
+        if (qt && has(qt)) toSel.value = qt;
+        if (qv !== null && qv !== '' && isFinite(parseFloat(qv))) { fromInput.value = qv; }
+        if (qf || qt || qv) convert(false);
+      } catch (e) { /* no-op */ }
+    })();
   }
+
+  /* Expose deterministic data + math for the Smart Search module (single source of truth). */
+  window.NexConvert = {
+    DATA: DATA,
+    tempConvert: tempConvert,
+    fuel: function (v, f, t) { return kmLToUnit(fuelToKmL(v, f), t); },
+    convert: function (cat, from, to, v) {
+      var d = DATA[cat]; if (!d) return NaN;
+      if (d.temp) return tempConvert(v, from, to);
+      if (d.special === 'fuel') return kmLToUnit(fuelToKmL(v, from), to);
+      return v * d.base[from] / d.base[to];
+    }
+  };
 
   document.addEventListener('DOMContentLoaded', function () {
     var root = document.getElementById('converter-app');

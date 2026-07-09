@@ -1,0 +1,34 @@
+/* Self-hosted, subsetted (Arabic + Latin) fonts — no render-blocking Google round-trips.
+   Author: mohamed-khairy-5i */
+
+/* Cairo — body. Single variable file covers 400–800 weights. */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/assets/fonts/cairo-var.woff2') format('woff2-variations');
+}
+
+/* Tajawal — display (headings). Static weights kept small. */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/tajawal-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/tajawal-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/assets/fonts/tajawal-800.woff2') format('woff2');
+}

@@ -119,10 +119,9 @@ HTML = '''<!DOCTYPE html>
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cairo-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/tajawal-800.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('nx-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.add('js-ready');})();</script>
@@ -168,27 +167,32 @@ HTML = '''<!DOCTYPE html>
   }
   </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=''' + ADSENSE + '''" crossorigin="anonymous"></script>
+  <script>/* Defer AdSense until the page is idle — keeps LCP/TBT low (perf pillar) */
+  (function(){function load(){if(window.__ads)return;window.__ads=1;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=''' + ADSENSE + '''';document.head.appendChild(s);}
+  if('requestIdleCallback'in window){requestIdleCallback(load,{timeout:3500});}else{window.addEventListener('load',function(){setTimeout(load,1200);});}
+  ['scroll','pointerdown','keydown'].forEach(function(e){window.addEventListener(e,load,{once:true,passive:true});});})();</script>
 </head>
 <body>
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>
 ''' + HEADER + '''
   <main id="main">
 
-    <!-- Hero -->
+    <!-- Hero: problem → instrument → one CTA -->
     <section class="hero">
       <div class="container">
-        <span class="eyebrow"><span class="dot"></span> المحوّل العربي الأدق لعام 2026</span>
-        <h1>حوّل أي وحدة قياس<br><span class="grad">بدقّة وسرعة وأناقة</span></h1>
-        <p class="lead">منصّة Nexluna تجمع 14 فئة و100+ وحدة في مكان واحد — نتائج فورية، سجل ذكي، ووضع ليلي، تعمل حتى دون إنترنت.</p>
+        <span class="eyebrow"><span class="dot"></span> محوّل الوحدات العربي · أسرع طريقة للإجابة</span>
+        <h1>اسأل بلغتك.<br><span class="grad">احصل على الرقم فورًا.</span></h1>
+        <p class="lead">اكتب سؤالك كما تنطقه — «5 كم بالميل» أو «100 celsius to F» — فيفهمه Nexluna ويجيبك في لحظة. 14 فئة، أكثر من 100 وحدة، بلا تتبّع، ويعمل دون إنترنت.</p>
+
+        <!-- Signature AI entry: deterministic natural-language search -->
+        <div class="smart-search-host reveal" id="smart-search"></div>
+
         <div class="hero-cta">
-          <a href="#converter" class="btn btn-primary"><span data-icon="bolt"></span> ابدأ التحويل الآن</a>
-          <a href="#converters" class="btn btn-outline"><span data-icon="grid"></span> تصفّح المحولات</a>
+          <a href="#converter" class="btn btn-primary"><span data-icon="bolt"></span> افتح المحوّل الكامل</a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat"><b>14</b><span>فئة قياس</span></div>
           <div class="hero-stat"><b>+100</b><span>وحدة مدعومة</span></div>
-          <div class="hero-stat"><b>100%</b><span>مجاني وبلا إعلان مزعج</span></div>
           <div class="hero-stat"><b>0</b><span>تتبّع أو تسجيل</span></div>
         </div>
         <div class="trust-bar">
@@ -202,7 +206,7 @@ HTML = '''<!DOCTYPE html>
 
     <!-- Live converter -->
     <section class="container section-sm" id="converter">
-      <div class="converter reveal" id="converter-app"></div>
+      <div class="converter reveal" id="converter-app"><div class="conv-skeleton" aria-hidden="true"><div class="sk sk-tabs"></div><div class="sk-row"><div class="sk sk-field"></div><div class="sk sk-swap"></div><div class="sk sk-field"></div></div><div class="sk sk-result"></div></div></div>
     </section>
 
     <!-- Ad -->
@@ -286,6 +290,7 @@ HTML = '''<!DOCTYPE html>
 ''' + FOOTER + '''
   <script src="/assets/js/icons.js" defer></script>
   <script src="/assets/js/converter.js" defer></script>
+  <script src="/assets/js/smartsearch.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

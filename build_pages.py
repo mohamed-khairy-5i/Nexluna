@@ -64,6 +64,7 @@ FOOTER = '''  <footer class="site-footer">
         </div>
         <div>
           <h4>روابط</h4>
+          <a href="/convert/">تحويلات سريعة</a>
           <a href="/blog/">المدونة</a>
           <a href="/about.html">عن الموقع</a>
           <a href="/privacy.html">سياسة الخصوصية</a>
@@ -234,10 +235,9 @@ TEMPLATE = '''<!DOCTYPE html>
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cairo-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/tajawal-800.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <script>(function(){{try{{var t=localStorage.getItem('nx-theme');if(t)document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}document.documentElement.classList.add('js-ready');}})();</script>
@@ -269,7 +269,7 @@ TEMPLATE = '''<!DOCTYPE html>
   {faq_ld}
   </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={adsense}" crossorigin="anonymous"></script>
+{ads_loader}
 </head>
 <body>
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>
@@ -285,7 +285,7 @@ TEMPLATE = '''<!DOCTYPE html>
         <p class="lead">{intro}</p>
       </div>
 
-      <div class="converter reveal" id="converter-app" data-only="{cat}"></div>
+      <div class="converter reveal" id="converter-app" data-only="{cat}"><div class="conv-skeleton" aria-hidden="true"><div class="sk sk-tabs"></div><div class="sk-row"><div class="sk sk-field"></div><div class="sk sk-swap"></div><div class="sk sk-field"></div></div><div class="sk sk-result"></div></div></div>
 
       <div class="ad-slot ad-inarticle reveal" aria-hidden="true">
         <ins class="adsbygoogle" style="display:block" data-ad-client="{adsense}" data-ad-slot="1234567891" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>
@@ -324,6 +324,18 @@ TEMPLATE = '''<!DOCTYPE html>
 '''
 
 
+ADS_LOADER = (
+    '  <script>/* Defer AdSense until idle — keeps LCP/TBT low (perf pillar) */\n'
+    '  (function(){function load(){if(window.__ads)return;window.__ads=1;'
+    "var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';"
+    "s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + ADSENSE + "';"
+    'document.head.appendChild(s);}\n'
+    "  if('requestIdleCallback'in window){requestIdleCallback(load,{timeout:3500});}"
+    "else{window.addEventListener('load',function(){setTimeout(load,1200);});}\n"
+    "  ['scroll','pointerdown','keydown'].forEach(function(e){window.addEventListener(e,load,{once:true,passive:true});});})();</script>"
+)
+
+
 def main():
     outdir = os.path.join(os.path.dirname(__file__), "converters")
     os.makedirs(outdir, exist_ok=True)
@@ -332,7 +344,7 @@ def main():
             base=BASE, cat=cat, name=p["name"], title=p["title"], desc=p["desc"],
             intro=p["intro"], icon=p["icon"], header=HEADER, footer=FOOTER, adsense=ADSENSE,
             faq_ld=faq_jsonld(p["faq"]), faq_html=faq_html(p["faq"]),
-            related=related_cards(cat),
+            related=related_cards(cat), ads_loader=ADS_LOADER,
         )
         with open(os.path.join(outdir, cat + ".html"), "w", encoding="utf-8") as f:
             f.write(html)

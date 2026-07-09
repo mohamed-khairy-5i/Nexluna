@@ -40,10 +40,9 @@ def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cairo-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/tajawal-800.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <script>(function(){{try{{var t=localStorage.getItem('nx-theme');if(t)document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}document.documentElement.classList.add('js-ready');}})();</script>
@@ -74,7 +73,10 @@ def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="
   }}
   </script>{faq_ld}
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9822291009441043" crossorigin="anonymous"></script>
+  <script>/* Defer AdSense until the page is idle — keeps LCP/TBT low (perf pillar) */
+  (function(){{function load(){{if(window.__ads)return;window.__ads=1;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9822291009441043';document.head.appendChild(s);}}
+  if('requestIdleCallback'in window){{requestIdleCallback(load,{{timeout:3500}});}}else{{window.addEventListener('load',function(){{setTimeout(load,1200);}});}}
+  ['scroll','pointerdown','keydown'].forEach(function(e){{window.addEventListener(e,load,{{once:true,passive:true}});}});}})();</script>
 </head>
 <body>
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>

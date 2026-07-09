@@ -32,10 +32,9 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cairo-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/tajawal-800.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('nx-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.add('js-ready');})();</script>
@@ -67,7 +66,10 @@
   { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "كم باسكال في البار؟", "acceptedAnswer": { "@type": "Answer", "text": "البار الواحد = 100,000 باسكال." } },{ "@type": "Question", "name": "كم psi في الضغط الجوي؟", "acceptedAnswer": { "@type": "Answer", "text": "الضغط الجوي (1 atm) ≈ 14.6959 psi." } }] }
   </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9822291009441043" crossorigin="anonymous"></script>
+  <script>/* Defer AdSense until idle — keeps LCP/TBT low (perf pillar) */
+  (function(){function load(){if(window.__ads)return;window.__ads=1;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9822291009441043';document.head.appendChild(s);}
+  if('requestIdleCallback'in window){requestIdleCallback(load,{timeout:3500});}else{window.addEventListener('load',function(){setTimeout(load,1200);});}
+  ['scroll','pointerdown','keydown'].forEach(function(e){window.addEventListener(e,load,{once:true,passive:true});});})();</script>
 </head>
 <body>
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>
@@ -103,7 +105,7 @@
         <p class="lead">حوّل بين وحدات الضغط المستخدمة في الهندسة والطقس والإطارات بدقة فورية.</p>
       </div>
 
-      <div class="converter reveal" id="converter-app" data-only="pressure"></div>
+      <div class="converter reveal" id="converter-app" data-only="pressure"><div class="conv-skeleton" aria-hidden="true"><div class="sk sk-tabs"></div><div class="sk-row"><div class="sk sk-field"></div><div class="sk sk-swap"></div><div class="sk sk-field"></div></div><div class="sk sk-result"></div></div></div>
 
       <div class="ad-slot ad-inarticle reveal" aria-hidden="true">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9822291009441043" data-ad-slot="1234567891" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>
@@ -185,6 +187,7 @@
         </div>
         <div>
           <h4>روابط</h4>
+          <a href="/convert/">تحويلات سريعة</a>
           <a href="/blog/">المدونة</a>
           <a href="/about.html">عن الموقع</a>
           <a href="/privacy.html">سياسة الخصوصية</a>

@@ -5,6 +5,8 @@
   'use strict';
   var P = 'stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"';
   var ICONS = {
+    search: '<circle cx="11" cy="11" r="7" ' + P + '/><path ' + P + ' d="m20 20-3.5-3.5"/>',
+    help: '<circle cx="12" cy="12" r="9" ' + P + '/><path ' + P + ' d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .9-1 1.7"/><path ' + P + ' d="M12 17h0"/>',
     length: '<path ' + P + ' d="M3 8h18v8H3z"/><path ' + P + ' d="M7 8v3M11 8v4M15 8v3M19 8v4"/>',
     weight: '<path ' + P + ' d="M6.5 8h11l2.5 11H4z"/><circle cx="12" cy="5.5" r="2.5" ' + P + '/><path ' + P + ' d="M12 8v0"/>',
     area: '<path ' + P + ' d="M4 4h16v16H4z"/><path ' + P + ' d="M4 9h16M4 14h16M9 4v16M14 4v16" stroke-dasharray="0.5 3"/>',
