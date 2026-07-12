@@ -2,295 +2,313 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nexluna.netlify.app/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/length.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/weight.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/area.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/volume.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/temperature.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/data.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/speed.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/time.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/pressure.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/energy.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/power.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/angle.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/fuel.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/converters/frequency.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/km-to-mi.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/mi-to-km.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/cm-to-in.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/in-to-cm.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/ft-to-m.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/m-to-ft.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/km-to-m.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/m-to-km.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/kg-to-lb.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/lb-to-kg.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/g-to-oz.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/oz-to-g.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/t-to-kg.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/c-to-f.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/f-to-c.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/c-to-k.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/gb-to-mb.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/mb-to-kb.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/tb-to-gb.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/kmh-to-mph.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/mph-to-kmh.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/ms-to-kmh.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/l-to-gal.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/gal-to-l.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/convert/cup-to-ml.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/blog/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/blog/length-conversion-guide.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/blog/cooking-measurement-conversion.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/blog/temperature-conversion-guide.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/blog/data-storage-units-explained.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexluna.netlify.app/blog/weight-conversion-guide.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexluna.netlify.app/blog/speed-conversion-guide.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexluna.netlify.app/blog/natural-language-conversion-search.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/about.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/contact.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://nexluna.netlify.app/privacy.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
