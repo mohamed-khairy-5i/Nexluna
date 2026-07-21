@@ -3,7 +3,8 @@
 import os
 from build_pages import HEADER, FOOTER, BASE
 
-def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="", read="5"):
+def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="", read="5", meta_title=None):
+    doc_title = meta_title or f"{title} | مدونة Nexluna"
     img = image or "/assets/img/og-image.png"
     img_abs = BASE + img if img.startswith("/") else img
     hero_html = f'        <img class="article-hero" src="{img}" width="1200" height="675" alt="{alt}" fetchpriority="high">' if image else ""
@@ -17,7 +18,7 @@ def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} | مدونة Nexluna</title>
+  <title>{doc_title}</title>
   <meta name="description" content="{desc}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="theme-color" content="#4f46e5">
@@ -168,6 +169,7 @@ ARTICLES = [
     {
         "slug": "temperature-conversion-guide",
         "title": "تحويل درجات الحرارة: سيلسيوس وفهرنهايت وكلفن بالتفصيل",
+        "meta_title": "تحويل درجات الحرارة: سيلسيوس وفهرنهايت وكلفن",
         "desc": "افهم الفرق بين سيلسيوس وفهرنهايت وكلفن، وتعلّم صيغ التحويل بينها مع أمثلة عملية ونقاط مرجعية مهمة.",
         "date": "2025-03-05",
         "read": "6",
@@ -197,6 +199,7 @@ ARTICLES = [
     {
         "slug": "data-storage-units-explained",
         "title": "وحدات تخزين البيانات: الفرق بين الكيلوبايت والكيبي بايت",
+        "meta_title": "وحدات تخزين البيانات: كيلوبايت مقابل كيبي بايت",
         "desc": "دليل تقني مبسّط يشرح وحدات تخزين البيانات العشرية (KB, MB, GB) والثنائية (KiB, MiB, GiB) ولماذا تختلف أحجام أقراصك.",
         "date": "2025-04-12",
         "read": "7",
@@ -314,14 +317,15 @@ def write(path, html):
 def build():
     for a in ARTICLES:
         write(f"blog/{a['slug']}.html", article_page(a["slug"], a["title"], a["desc"], a["date"], a["body"],
-              a.get("faq"), image=a.get("image"), alt=a.get("alt", ""), read=a.get("read", "5")))
+              a.get("faq"), image=a.get("image"), alt=a.get("alt", ""), read=a.get("read", "5"),
+              meta_title=a.get("meta_title")))
     # blog index — image cards
     cards = "\n".join(
         f'''          <a class="card blog-card" href="/blog/{a['slug']}.html">
             <img class="blog-thumb" src="{a['image']}" width="600" height="338" alt="{a.get('alt','')}" loading="lazy">
             <div class="blog-card-body">
               <span class="blog-date">{a['date']} · قراءة {a.get('read','5')} دقائق</span>
-              <h3>{a['title']}</h3>
+              <h2 class="card-title">{a['title']}</h2>
               <p>{a['excerpt']}</p>
               <span class="arrow" data-icon="arrow" aria-hidden="true"></span>
             </div>

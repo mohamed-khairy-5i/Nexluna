@@ -241,7 +241,7 @@ def write_index(written):
         cards.append(
             '        <a class="card" href="/convert/' + sl + '.html">\n'
             '          <div class="card-icon"><span data-icon="' + cat + '"></span></div>\n'
-            '          <h3>' + fa + ' إلى ' + ta + '</h3>\n'
+            '          <h2 class="card-title">' + fa + ' إلى ' + ta + '</h2>\n'
             '          <p>جدول ومحوّل فوري للتحويل من ' + fa + ' إلى ' + ta + '.</p>\n'
             '          <span class="arrow" data-icon="arrow" aria-hidden="true"></span>\n        </a>'
         )
@@ -251,6 +251,15 @@ def write_index(written):
         '  <title>تحويلات الوحدات الشائعة — Nexluna</title>\n' \
         '  <meta name="description" content="روابط سريعة لأشهر عمليات تحويل الوحدات: كيلومتر إلى ميل، كجم إلى رطل، سيلسيوس إلى فهرنهايت، وغيرها — بجداول ومحوّل فوري.">\n' \
         '  <link rel="canonical" href="' + url + '">\n' \
+        '  <meta property="og:type" content="website">\n' \
+        '  <meta property="og:locale" content="ar_AR">\n' \
+        '  <meta property="og:title" content="تحويلات الوحدات الشائعة — Nexluna">\n' \
+        '  <meta property="og:description" content="روابط سريعة لأشهر عمليات تحويل الوحدات مع جداول ومحوّل فوري دقيق.">\n' \
+        '  <meta property="og:url" content="' + url + '">\n' \
+        '  <meta property="og:image" content="' + BASE + '/assets/img/og-image.png">\n' \
+        '  <meta property="og:image:width" content="1200">\n' \
+        '  <meta property="og:image:height" content="630">\n' \
+        '  <meta name="twitter:card" content="summary_large_image">\n' \
         '  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cairo-var.woff2" crossorigin>\n' \
         '  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/tajawal-800.woff2" crossorigin>\n' \
         '  <link rel="stylesheet" href="/assets/css/fonts.css">\n' \
@@ -261,7 +270,7 @@ def write_index(written):
         '  <main id="main">\n    <div class="container section">\n' \
         '      <div class="section-head reveal"><span class="eyebrow"><span data-icon="grid"></span> تحويلات سريعة</span>' \
         '<h1>أشهر تحويلات الوحدات</h1><p class="lead">اختر التحويل الذي تريده مباشرة — كل صفحة فيها جدول قيم شائعة ومحوّل فوري دقيق.</p></div>\n' \
-        '      <div class="cards-grid reveal">\n' + "\n".join(cards) + '\n      </div>\n' \
+        '      <div class="grid grid-cards reveal">\n' + "\n".join(cards) + '\n      </div>\n' \
         '    </div>\n  </main>\n' + FOOTER + '\n' \
         '  <script src="/assets/js/icons.js" defer></script>\n  <script src="/assets/js/main.js" defer></script>\n' \
         '</body>\n</html>\n'

@@ -45,7 +45,7 @@ FOOTER = '''  <footer class="site-footer">
           </div>
         </div>
         <div>
-          <h4>المحولات</h4>
+          <h2 class="footer-heading">المحولات</h2>
           <a href="/converters/length.html">الطول</a>
           <a href="/converters/weight.html">الوزن</a>
           <a href="/converters/area.html">المساحة</a>
@@ -54,7 +54,7 @@ FOOTER = '''  <footer class="site-footer">
           <a href="/converters/data.html">البيانات الرقمية</a>
         </div>
         <div>
-          <h4>المزيد</h4>
+          <h2 class="footer-heading">المزيد</h2>
           <a href="/converters/speed.html">السرعة</a>
           <a href="/converters/time.html">الوقت</a>
           <a href="/converters/pressure.html">الضغط</a>
@@ -63,7 +63,7 @@ FOOTER = '''  <footer class="site-footer">
           <a href="/converters/fuel.html">استهلاك الوقود</a>
         </div>
         <div>
-          <h4>روابط</h4>
+          <h2 class="footer-heading">روابط</h2>
           <a href="/convert/">تحويلات سريعة</a>
           <a href="/blog/">المدونة</a>
           <a href="/about.html">عن الموقع</a>
@@ -110,7 +110,7 @@ PAGES = {
         "faq": [("كيف أحوّل من سيلسيوس إلى فهرنهايت؟", "استخدم الصيغة: °F = (°C × 9/5) + 32."),
                 ("ما درجة تجمّد الماء؟", "تجمّد الماء يحدث عند 0°C أي 32°F أو 273.15K.")]},
     "data": {"name": "البيانات الرقمية", "icon": "data",
-        "title": "محول وحدات البيانات | بايت، كيلوبايت، ميغابايت، غيغابايت — Nexluna",
+        "title": "محول وحدات البيانات | بايت، ميغابايت، غيغابايت — Nexluna",
         "desc": "حوّل وحدات تخزين البيانات بدقة: بت، بايت، كيلوبايت، ميغابايت، غيغابايت، تيرابايت، والوحدات الثنائية (KiB, MiB, GiB). أداة مجانية من Nexluna.",
         "intro": "حوّل بين وحدات تخزين البيانات العشرية (KB, MB, GB) والثنائية (KiB, MiB, GiB) بدقة، مفيد للمطوّرين ومحبّي التقنية.",
         "faq": [("كم بايت في الكيلوبايت؟", "الكيلوبايت العشري = 1000 بايت، أما الكيبي بايت (KiB) = 1024 بايت."),

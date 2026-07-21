@@ -116,7 +116,7 @@ success_body = '''    <div class="container section text-center">
       </div>
     </div>'''
 write("contact-success.html", page("contact-success.html", "تم الإرسال | Nexluna",
-    "تم استلام رسالتك بنجاح.", success_body, noindex=True))
+    "تم استلام رسالتك بنجاح، وسيتواصل معك فريق Nexluna في أقرب وقت ممكن. شكرًا لتواصلك معنا.", success_body, noindex=True))
 
 # ---------- Privacy ----------
 privacy_body = '''    <div class="container section">
@@ -149,7 +149,7 @@ nf_body = '''    <div class="container section text-center">
       </div>
     </div>'''
 write("404.html", page("404.html", "الصفحة غير موجودة | Nexluna",
-    "الصفحة غير موجودة.", nf_body, noindex=True))
+    "عذرًا، الصفحة التي تبحث عنها غير موجودة أو تم نقلها. عد إلى الرئيسية أو استكشف محوّلات Nexluna للوحدات.", nf_body, noindex=True))
 
 # ---------- Offline (PWA fallback) ----------
 offline_body = '''    <div class="container section text-center">
@@ -161,7 +161,7 @@ offline_body = '''    <div class="container section text-center">
       </div>
     </div>'''
 write("offline.html", page("offline.html", "غير متصل | Nexluna",
-    "أنت غير متصل بالإنترنت.", offline_body, noindex=True))
+    "يبدو أنك فقدت الاتصال بالإنترنت. يمكنك تصفّح الصفحات التي زرتها سابقًا في Nexluna أو إعادة المحاولة لاحقًا.", offline_body, noindex=True))
 
 if __name__ == "__main__":
     print("done")

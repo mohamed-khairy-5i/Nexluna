@@ -262,7 +262,7 @@ main { flex: 1 0 auto; }
   background: var(--primary-50); color: var(--primary); margin-bottom: var(--sp-3);
 }
 .card-icon svg { width: 28px; height: 28px; }
-.card h3 { font-size: var(--step-1); margin-bottom: var(--sp-2); font-weight: 800; letter-spacing: -0.01em; }
+.card h3, .card .card-title { font-size: var(--step-1); margin-bottom: var(--sp-2); font-weight: 800; letter-spacing: -0.01em; }
 .card p { color: var(--text-muted); font-size: var(--step--1); }
 .card .arrow { position: absolute; inset-inline-end: var(--sp-5); bottom: var(--sp-5); color: var(--primary); opacity: 0; transform: translateX(6px); transition: all var(--transition); }
 [dir="rtl"] .card .arrow { transform: translateX(-6px) scaleX(-1); }
@@ -426,7 +426,7 @@ main { flex: 1 0 auto; }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--surface); border-top: 1px solid var(--border); padding-block: var(--sp-7) var(--sp-5); margin-top: var(--sp-9); }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--sp-6); margin-bottom: var(--sp-6); }
-.footer-grid h4 { font-size: var(--step-0); margin-bottom: var(--sp-3); font-weight: 800; }
+.footer-grid h4, .footer-grid .footer-heading { font-size: var(--step-0); margin-bottom: var(--sp-3); font-weight: 800; }
 .footer-grid a { display: block; color: var(--text-muted); padding: var(--sp-1) 0; font-size: var(--step--1); }
 .footer-grid a:hover { color: var(--primary); }
 .footer-bottom { text-align: center; color: var(--text-muted); font-size: var(--step--1); border-top: 1px solid var(--border); padding-top: var(--sp-4); }
@@ -478,7 +478,7 @@ html.js-ready .reveal.in { opacity: 1; transform: none; transition: opacity 0.7s
 .blog-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; display: block; }
 .blog-card-body { padding: var(--sp-5); position: relative; }
 .blog-date { font-size: 0.72rem; color: var(--primary); font-weight: 700; }
-.blog-card-body h3 { font-size: var(--step-1); margin: var(--sp-2) 0; font-weight: 800; }
+.blog-card-body h3, .blog-card-body .card-title { font-size: var(--step-1); margin: var(--sp-2) 0; font-weight: 800; }
 .blog-card-body p { color: var(--text-muted); font-size: var(--step--1); }
 .blog-card .arrow { position: static; opacity: 0.85; margin-top: var(--sp-3); display: inline-block; }
 .prose table { width: 100%; border-collapse: collapse; margin: var(--sp-4) 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
