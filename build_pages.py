@@ -7,6 +7,44 @@ import os
 BASE = "https://nexluna.netlify.app"
 ADSENSE = "ca-pub-9822291009441043"
 
+# ---- Developer credit (single source of truth — change here to re-brand/remove) ----
+DEV = {
+    "name_ar": "محمد خيري",
+    "name_en": "Mohamed Khairy",
+    "role_ar": "مهندس MERN Stack و ذكاء اصطناعي",
+    "role_en": "MERN Stack & AI Engineer",
+    "email": "mohamedkhairy0887@gmail.com",
+    "github": "https://github.com/mohamed-khairy-5i",
+    "linkedin": "https://www.linkedin.com/in/mohamed-khairy-5i/",
+    "portfolio": "https://mokhairy.netlify.app/",
+}
+
+# Tasteful one-line credit for the footer (Arabic site → Arabic name). Year auto-fills via [data-year].
+DEV_CREDIT = (
+    '      <div class="footer-dev">\n'
+    '        <span>طُوِّر بواسطة</span>\n'
+    '        <a href="' + DEV["portfolio"] + '" target="_blank" rel="author noopener" class="footer-dev-name">' + DEV["name_ar"] + '</a>\n'
+    '        <span class="footer-dev-role">— ' + DEV["role_ar"] + '</span>\n'
+    '        <span class="footer-dev-links" aria-label="روابط التواصل مع المطوّر">\n'
+    '          <a href="' + DEV["portfolio"] + '" target="_blank" rel="noopener" title="الموقع الشخصي" aria-label="الموقع الشخصي"><span data-icon="globe"></span></a>\n'
+    '          <a href="' + DEV["github"] + '" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><span data-icon="github"></span></a>\n'
+    '          <a href="' + DEV["linkedin"] + '" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><span data-icon="linkedin"></span></a>\n'
+    '          <a href="mailto:' + DEV["email"] + '" title="البريد الإلكتروني" aria-label="البريد الإلكتروني"><span data-icon="mail"></span></a>\n'
+    '        </span>\n'
+    '      </div>'
+)
+
+# Reusable Person JSON-LD (author/creator) — embed via DEV_PERSON_JSONLD wherever author attribution belongs.
+DEV_PERSON_JSONLD = (
+    '{ "@type": "Person", '
+    '"name": "' + DEV["name_en"] + '", '
+    '"alternateName": "' + DEV["name_ar"] + '", '
+    '"jobTitle": "' + DEV["role_en"] + '", '
+    '"email": "mailto:' + DEV["email"] + '", '
+    '"url": "' + DEV["portfolio"] + '", '
+    '"sameAs": ["' + DEV["github"] + '", "' + DEV["linkedin"] + '", "' + DEV["portfolio"] + '"] }'
+)
+
 # ---- Shared navigation used across every page (modern data-icon icons) ----
 HEADER = '''  <header class="site-header">
     <div class="container nav">
@@ -72,6 +110,7 @@ FOOTER = '''  <footer class="site-footer">
         </div>
       </div>
       <div class="footer-bottom">© <span data-year>2025</span> Nexluna — جميع الحقوق محفوظة. صُنع بإتقان للمستخدم العربي.</div>
+''' + DEV_CREDIT + '''
     </div>
   </footer>'''
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the premium Nexluna homepage (index.html)."""
 import os
-from build_pages import HEADER, FOOTER, BASE, ADSENSE, PAGES, ORDER
+from build_pages import HEADER, FOOTER, BASE, ADSENSE, PAGES, ORDER, DEV, DEV_PERSON_JSONLD
 
 # Category cards for the converter grid (all 14)
 CARD_DESC = {
@@ -149,6 +149,7 @@ HTML = '''<!DOCTYPE html>
     "name": "Nexluna",
     "url": "''' + BASE + '''/",
     "logo": "''' + BASE + '''/assets/img/icon-512.png",
+    "founder": ''' + DEV_PERSON_JSONLD + ''',
     "sameAs": []
   }
   </script>
@@ -163,7 +164,9 @@ HTML = '''<!DOCTYPE html>
     "inLanguage": "ar",
     "browserRequirements": "Requires JavaScript",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "featureList": ["تحويل 14 فئة قياس", "سجل التحويلات", "المفضّلة", "يعمل دون إنترنت", "وضع ليلي", "نسخ النتيجة"]
+    "featureList": ["تحويل 14 فئة قياس", "سجل التحويلات", "المفضّلة", "يعمل دون إنترنت", "وضع ليلي", "نسخ النتيجة"],
+    "author": ''' + DEV_PERSON_JSONLD + ''',
+    "creator": ''' + DEV_PERSON_JSONLD + '''
   }
   </script>
 

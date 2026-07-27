@@ -62,6 +62,19 @@ python3 build_pages.py && python3 build_content.py && python3 build_blog.py
 يُنشر الموقع تلقائيًا على **Netlify** من الفرع `main`. الإعدادات معرّفة في `netlify.toml`
 (مجلد النشر، ترويسات الأمان، والتحويلات). لا توجد أسرار في المستودع.
 
+## 👨‍💻 المطوّر
+
+طُوِّر هذا المشروع وصُمِّم بواسطة **محمد خيري** (Mohamed Khairy) — مهندس **MERN Stack & AI**.
+
+هل أعجبك العمل وتريد موقعًا أو تطبيقًا مماثلًا؟ تواصل معي:
+
+- 🌐 الموقع الشخصي: [mokhairy.netlify.app](https://mokhairy.netlify.app/)
+- 💼 LinkedIn: [mohamed-khairy-5i](https://www.linkedin.com/in/mohamed-khairy-5i/)
+- 🐙 GitHub: [mohamed-khairy-5i](https://github.com/mohamed-khairy-5i)
+- ✉️ البريد: [mohamedkhairy0887@gmail.com](mailto:mohamedkhairy0887@gmail.com)
+
 ## 📄 الترخيص
 
-MIT © Nexluna
+MIT © محمد خيري (Mohamed Khairy) — [mokhairy.netlify.app](https://mokhairy.netlify.app/)
+
+راجع ملف [`AUTHORS`](./AUTHORS) لتفاصيل المساهمين.
