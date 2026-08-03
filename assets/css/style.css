@@ -1008,3 +1008,42 @@ html.js-ready .cat-card { transition-delay: var(--d, 0ms); }
 .conv-table tbody tr:last-child td { border-bottom: 0; }
 .conv-table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--surface-2) 45%, transparent); }
 .conv-table td:last-child { font-weight: 700; color: var(--primary); }
+
+/* ==========================================================================
+   ACCESSIBILITY — touch-target sizing (WCAG 2.5.5 / Apple HIG ~44px)
+   Enlarges hit areas for small links & text buttons on touch/small screens
+   without changing the visual footprint (padding expands the clickable box).
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Breadcrumb links */
+  .breadcrumb { gap: var(--sp-3); }
+  .breadcrumb a {
+    display: inline-flex; align-items: center;
+    min-height: 44px; padding-inline: 4px;
+  }
+  /* Footer column links */
+  .footer-grid a {
+    min-height: 44px; display: flex; align-items: center;
+    padding-block: var(--sp-2);
+  }
+  /* Developer credit: name + role tappable name */
+  .footer-dev .footer-dev-name {
+    display: inline-flex; align-items: center;
+    min-height: 44px; padding-inline: 4px;
+  }
+  /* Developer credit: social icon buttons */
+  .footer-dev-links { gap: var(--sp-3); }
+  .footer-dev-links a { width: 44px; height: 44px; border-radius: 12px; }
+  .footer-dev-links svg { width: 18px; height: 18px; }
+  /* History "clear all" text button */
+  .history .clear {
+    display: inline-flex; align-items: center;
+    min-height: 44px; padding: 0 var(--sp-3); border-radius: 10px;
+  }
+  /* Header / footer theme + nav toggles get comfortable hit area */
+  .pill-btn { min-height: 44px; }
+  /* Brand/logo link: keep 40px logo visual, expand tap box to 44px */
+  .brand { min-height: 44px; }
+  /* Smart-search suggestion chips */
+  .ss-chip { min-height: 44px; display: inline-flex; align-items: center; }
+}
