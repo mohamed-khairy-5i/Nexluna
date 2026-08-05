@@ -1,6 +1,12 @@
 User-agent: *
 Allow: /
 
+# ---- Content Signals (contentsignals.org) ----
+# search  = allow appearing in search results
+# ai-input = allow use as real-time AI answer input (RAG/grounding)
+# ai-train = disallow use for training AI models
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
 # Block thank-you / utility pages from indexing (still crawlable)
 Disallow: /contact-success.html
 Disallow: /offline.html

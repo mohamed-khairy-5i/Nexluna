@@ -155,7 +155,7 @@
 
     /* History */
     var histWrap = el('div', { class: 'history' });
-    var histHead = el('h3', null, '<span>' + ic('history') + ' آخر التحويلات</span>');
+    var histHead = el('h2', null, '<span>' + ic('history') + ' آخر التحويلات</span>');
     var clearBtn = el('button', { class: 'clear', type: 'button' }, 'مسح الكل');
     histHead.appendChild(clearBtn);
     var histList = el('div', { class: 'history-list' });
@@ -175,9 +175,9 @@
     }
     function renderInfo() {
       var d = DATA[current]; info.innerHTML = '';
-      info.appendChild(el('h3', { style: 'margin-bottom:var(--sp-2)' }, 'صيغ التحويل'));
+      info.appendChild(el('h2', { style: 'margin-bottom:var(--sp-2)' }, 'صيغ التحويل'));
       info.appendChild(el('div', { class: 'formula' }, d.formulas.join('<br>')));
-      info.appendChild(el('h3', { style: 'margin:var(--sp-4) 0 var(--sp-2)' }, 'تحويلات شائعة'));
+      info.appendChild(el('h2', { style: 'margin:var(--sp-4) 0 var(--sp-2)' }, 'تحويلات شائعة'));
       var ul = el('ul', { class: 'conv-list' }); d.common.forEach(function (c) { ul.appendChild(el('li', null, c)); }); info.appendChild(ul);
     }
     function calc(v) {

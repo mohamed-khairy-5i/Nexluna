@@ -90,7 +90,7 @@ def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="
         <p class="article-meta" style="color:var(--text-muted);font-size:var(--step--1);display:flex;gap:var(--sp-3);flex-wrap:wrap;align-items:center"><span>نُشر في {date}</span><span aria-hidden="true">·</span><span>قراءة {read} دقائق</span></p>
 {hero_html}
 {body_html}
-        <div class="ad-slot ad-inarticle" aria-hidden="true">
+        <div class="ad-slot ad-inarticle" role="complementary" aria-label="إعلان">
           <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9822291009441043" data-ad-slot="1234567893" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({{}});</script>
         </div>

@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://nexluna.netlify.app/",
+      "service-doc": [
+        {
+          "href": "https://nexluna.netlify.app/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://nexluna.netlify.app/sitemap.xml",
+          "type": "application/xml"
+        }
+      ]
+    }
+  ]
+}

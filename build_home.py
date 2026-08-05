@@ -214,7 +214,7 @@ HTML = '''<!DOCTYPE html>
 
     <!-- Ad -->
     <div class="container">
-      <div class="ad-slot ad-leaderboard reveal" aria-hidden="true">
+      <div class="ad-slot ad-leaderboard reveal" role="complementary" aria-label="إعلان">
         <ins class="adsbygoogle" style="display:block" data-ad-client="''' + ADSENSE + '''" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>

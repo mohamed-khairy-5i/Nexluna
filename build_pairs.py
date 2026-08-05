@@ -205,7 +205,7 @@ def page_html(cat, frm, to):
         '<h2>جدول تحويل ' + fa + ' إلى ' + ta + '</h2></div>\n' \
         '        <div class="table-wrap"><table class="conv-table"><thead><tr><th>' + fa + '</th><th>' + ta + '</th></tr></thead><tbody>\n' \
         + table_rows(cat, frm, to) + '\n        </tbody></table></div>\n      </section>\n' \
-        '      <div class="ad-slot ad-inarticle reveal" aria-hidden="true">\n' \
+        '      <div class="ad-slot ad-inarticle reveal" role="complementary" aria-label="إعلان">\n' \
         '        <ins class="adsbygoogle" style="display:block" data-ad-client="' + ADSENSE + '" data-ad-slot="1234567891" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>\n' \
         '        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>\n      </div>\n' \
         '      <section class="section-sm reveal">\n' \

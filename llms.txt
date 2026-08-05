@@ -1,0 +1,65 @@
+# Nexluna
+
+> محوّل وحدات عربي مجاني، سريع ودقيق — 14 فئة تحويل (طول، وزن، حرارة، بيانات، سرعة، وقت، ضغط، طاقة، قدرة، زوايا، وقود، تردد، مساحة، حجم). A free, fast, accurate Arabic-first unit converter covering 14 categories.
+
+Nexluna is a static, privacy-friendly website. All conversions run client-side in the browser — there is no tracking of user input. Content is in Arabic (RTL).
+
+## المحوّلات (Converters)
+
+- [الطول](https://nexluna.netlify.app/converters/length.html): حوّل وحدات الطول والمسافة بدقة: متر، كيلومتر، سنتيمتر، مليمتر، ميل، ياردة، قدم، وإنش
+- [الوزن](https://nexluna.netlify.app/converters/weight.html): حوّل وحدات الوزن والكتلة بدقة: طن، كيلوغرام، غرام، مليغرام، رطل، وأونصة
+- [المساحة](https://nexluna.netlify.app/converters/area.html): حوّل وحدات المساحة بدقة: متر مربع، كيلومتر مربع، هكتار، فدان، قدم مربع، وإنش مربع
+- [الحجم والسعة](https://nexluna.netlify.app/converters/volume.html): حوّل وحدات الحجم والسعة بدقة: متر مكعب، لتر، مليلتر، جالون، كوارت، كوب، وأونصة سائلة
+- [درجة الحرارة](https://nexluna.netlify.app/converters/temperature.html): حوّل درجات الحرارة بدقة بين سيلسيوس (°C)، فهرنهايت (°F)، وكلفن (K)
+- [البيانات الرقمية](https://nexluna.netlify.app/converters/data.html): حوّل وحدات تخزين البيانات بدقة: بت، بايت، كيلوبايت، ميغابايت، غيغابايت، تيرابايت، والوحدات الثنائية (KiB, MiB, GiB)
+- [السرعة](https://nexluna.netlify.app/converters/speed.html): حوّل وحدات السرعة بدقة: كيلومتر/ساعة، متر/ثانية، ميل/ساعة، عقدة، وقدم/ثانية
+- [الوقت](https://nexluna.netlify.app/converters/time.html): حوّل وحدات الوقت بدقة: مليثانية، ثانية، دقيقة، ساعة، يوم، أسبوع، شهر، وسنة
+- [الضغط](https://nexluna.netlify.app/converters/pressure.html): حوّل وحدات الضغط بدقة: باسكال، كيلوباسكال، بار، ضغط جوي (atm)، psi، وملم زئبق
+- [الطاقة](https://nexluna.netlify.app/converters/energy.html): حوّل وحدات الطاقة بدقة: جول، كيلوجول، سعرة، كيلوسعرة، واط·ساعة، كيلوواط·ساعة، وBTU
+- [القدرة](https://nexluna.netlify.app/converters/power.html): حوّل وحدات القدرة بدقة: واط، كيلوواط، ميغاواط، حصان، وBTU/ساعة
+- [الزوايا](https://nexluna.netlify.app/converters/angle.html): حوّل وحدات الزوايا بدقة: درجة، راديان، غراد، دقيقة قوسية، وثانية قوسية
+- [استهلاك الوقود](https://nexluna.netlify.app/converters/fuel.html): حوّل معدلات استهلاك الوقود بدقة بين كم/لتر، لتر/100كم، وميل/جالون (mpg)
+- [التردد](https://nexluna.netlify.app/converters/frequency.html): حوّل وحدات التردد بدقة: هيرتز، كيلوهيرتز، ميغاهيرتز، غيغاهيرتز، ودورة/دقيقة (rpm)
+
+## تحويلات شائعة (Popular conversions)
+
+- [km → mi](https://nexluna.netlify.app/convert/km-to-mi.html)
+- [mi → km](https://nexluna.netlify.app/convert/mi-to-km.html)
+- [cm → in](https://nexluna.netlify.app/convert/cm-to-in.html)
+- [in → cm](https://nexluna.netlify.app/convert/in-to-cm.html)
+- [ft → m](https://nexluna.netlify.app/convert/ft-to-m.html)
+- [m → ft](https://nexluna.netlify.app/convert/m-to-ft.html)
+- [km → m](https://nexluna.netlify.app/convert/km-to-m.html)
+- [m → km](https://nexluna.netlify.app/convert/m-to-km.html)
+- [kg → lb](https://nexluna.netlify.app/convert/kg-to-lb.html)
+- [lb → kg](https://nexluna.netlify.app/convert/lb-to-kg.html)
+- [g → oz](https://nexluna.netlify.app/convert/g-to-oz.html)
+- [oz → g](https://nexluna.netlify.app/convert/oz-to-g.html)
+- [t → kg](https://nexluna.netlify.app/convert/t-to-kg.html)
+- [C → F](https://nexluna.netlify.app/convert/c-to-f.html)
+- [F → C](https://nexluna.netlify.app/convert/f-to-c.html)
+- [C → K](https://nexluna.netlify.app/convert/c-to-k.html)
+- [GB → MB](https://nexluna.netlify.app/convert/gb-to-mb.html)
+- [MB → KB](https://nexluna.netlify.app/convert/mb-to-kb.html)
+- [TB → GB](https://nexluna.netlify.app/convert/tb-to-gb.html)
+- [kmh → mph](https://nexluna.netlify.app/convert/kmh-to-mph.html)
+- [mph → kmh](https://nexluna.netlify.app/convert/mph-to-kmh.html)
+- [ms → kmh](https://nexluna.netlify.app/convert/ms-to-kmh.html)
+- [L → gal](https://nexluna.netlify.app/convert/l-to-gal.html)
+- [gal → L](https://nexluna.netlify.app/convert/gal-to-l.html)
+- [cup → mL](https://nexluna.netlify.app/convert/cup-to-ml.html)
+
+## صفحات مهمة (Key pages)
+
+- [كل المحوّلات](https://nexluna.netlify.app/convert/): فهرس صفحات التحويل
+- [المدوّنة](https://nexluna.netlify.app/blog/): أدلّة ومقالات عن وحدات القياس
+- [من نحن](https://nexluna.netlify.app/about.html)
+- [اتصل بنا](https://nexluna.netlify.app/contact.html)
+- [سياسة الخصوصية](https://nexluna.netlify.app/privacy.html)
+
+## Metadata
+
+- Language: Arabic (ar), RTL
+- License: content © Nexluna; open-source under MIT
+- Developer: Mohamed Khairy (MERN Stack & AI Engineer) — https://mokhairy.netlify.app/
+- Sitemap: https://nexluna.netlify.app/sitemap.xml
