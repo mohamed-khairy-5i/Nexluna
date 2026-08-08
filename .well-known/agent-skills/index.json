@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/agent-skills-discovery-rfc/main/schemas/v0.2.0/index.json",
+  "version": "0.2.0",
+  "name": "Nexluna",
+  "description": "محوّل وحدات عربي دقيق — مهارات تحويل الوحدات للوكلاء. Arabic-first unit converter — unit-conversion skills for AI agents.",
+  "skills": [
+    {
+      "name": "unit-conversion",
+      "type": "webmcp",
+      "description": "تحويل قيمة بين وحدتين ضمن 14 فئة (طول، وزن، مساحة، حجم، حرارة، بيانات، سرعة، وقت، ضغط، طاقة، قدرة، زوايا، وقود، تردد) عبر أداة WebMCP باسم convert_units. Convert values across 14 measurement categories via the WebMCP tool convert_units.",
+      "url": "https://nexluna.netlify.app/.well-known/agent-skills/unit-conversion.md",
+      "sha256": "98a25525ab621197ff9139ad64dd86e566dc710db02bf39d1b2d471af9cbf6d0"
+    }
+  ]
+}

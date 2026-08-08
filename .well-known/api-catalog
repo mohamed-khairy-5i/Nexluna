@@ -6,6 +6,16 @@
         {
           "href": "https://nexluna.netlify.app/llms.txt",
           "type": "text/plain"
+        },
+        {
+          "href": "https://nexluna.netlify.app/md/index.md",
+          "type": "text/markdown"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "https://nexluna.netlify.app/.well-known/agent-skills/index.json",
+          "type": "application/json"
         }
       ],
       "describedby": [

@@ -100,6 +100,7 @@ def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="
   </main>
 {FOOTER}
   <script src="/assets/js/icons.js" defer></script>
+  <script src="/assets/js/webmcp.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

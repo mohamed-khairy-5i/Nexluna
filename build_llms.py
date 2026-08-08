@@ -74,7 +74,13 @@ def build_api_catalog():
         "linkset": [
             {
                 "anchor": BASE + "/",
-                "service-doc": [{"href": BASE + "/llms.txt", "type": "text/plain"}],
+                "service-doc": [
+                    {"href": BASE + "/llms.txt", "type": "text/plain"},
+                    {"href": BASE + "/md/index.md", "type": "text/markdown"},
+                ],
+                "service-desc": [
+                    {"href": BASE + "/.well-known/agent-skills/index.json", "type": "application/json"},
+                ],
                 "describedby": [{"href": BASE + "/sitemap.xml", "type": "application/xml"}],
             }
         ]

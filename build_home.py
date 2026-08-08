@@ -294,6 +294,7 @@ HTML = '''<!DOCTYPE html>
   <script src="/assets/js/icons.js" defer></script>
   <script src="/assets/js/converter.js" defer></script>
   <script src="/assets/js/smartsearch.js" defer></script>
+  <script src="/assets/js/webmcp.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

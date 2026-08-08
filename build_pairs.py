@@ -213,6 +213,7 @@ def page_html(cat, frm, to):
         '        <div class="faq">\n' + faq_html(faq) + '\n        </div>\n      </section>\n' \
         '    </div>\n  </main>\n' + FOOTER + '\n' \
         '  <script src="/assets/js/icons.js" defer></script>\n' \
+        '  <script src="/assets/js/webmcp.js" defer></script>\n' \
         '  <script src="/assets/js/main.js" defer></script>\n' \
         '</body>\n</html>\n'
 
@@ -272,7 +273,7 @@ def write_index(written):
         '<h1>أشهر تحويلات الوحدات</h1><p class="lead">اختر التحويل الذي تريده مباشرة — كل صفحة فيها جدول قيم شائعة ومحوّل فوري دقيق.</p></div>\n' \
         '      <div class="grid grid-cards reveal">\n' + "\n".join(cards) + '\n      </div>\n' \
         '    </div>\n  </main>\n' + FOOTER + '\n' \
-        '  <script src="/assets/js/icons.js" defer></script>\n  <script src="/assets/js/main.js" defer></script>\n' \
+        '  <script src="/assets/js/icons.js" defer></script>\n  <script src="/assets/js/webmcp.js" defer></script>\n  <script src="/assets/js/main.js" defer></script>\n' \
         '</body>\n</html>\n'
     with open(os.path.join(OUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)

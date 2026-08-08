@@ -51,6 +51,7 @@ def page(path, title, desc, body, canonical=None, noindex=False, extra_head=""):
   </main>
 {FOOTER}
   <script src="/assets/js/icons.js" defer></script>
+  <script src="/assets/js/webmcp.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
