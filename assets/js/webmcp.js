@@ -11,8 +11,8 @@
   var DATA = {
     length:      { label: 'الطول', base: { km:1000, m:1, cm:0.01, mm:0.001, mi:1609.344, yd:0.9144, ft:0.3048, 'in':0.0254, nmi:1852 } },
     weight:      { label: 'الوزن', base: { t:1000, kg:1, g:0.001, mg:0.000001, lb:0.45359237, oz:0.028349523, st:6.35029318, ct:0.0002 } },
-    area:        { label: 'المساحة', base: { km2:1000000, m2:1, cm2:0.0001, ha:10000, acre:4046.8564224, ft2:0.09290304, in2:0.00064516, mi2:2589988.11 } },
-    volume:      { label: 'الحجم', base: { m3:1000, L:1, mL:0.001, gal:3.785411784, qt:0.946352946, pt:0.473176473, cup:0.2365882365, floz:0.0295735296, tbsp:0.0147867648, tsp:0.0049289216 } },
+    area:        { label: 'المساحة', base: { km2:1000000, m2:1, cm2:0.0001, ha:10000, feddan:4200.833, kirat:175.03470833333333, sahm:7.293112847222222, dunam:1000, acre:4046.8564224, ft2:0.09290304, in2:0.00064516, mi2:2589988.11 } },
+    volume:      { label: 'الحجم', base: { m3:1000, L:1, mL:0.001, gal:3.785411784, galUK:4.54609, qt:0.946352946, pt:0.473176473, cup:0.2365882365, floz:0.0295735296, tbsp:0.0147867648, tsp:0.0049289216 } },
     temperature: { label: 'درجة الحرارة', temp: true, units: ['C', 'F', 'K'] },
     data:        { label: 'البيانات الرقمية', base: { bit:0.125, B:1, KB:1000, MB:1000000, GB:1000000000, TB:1000000000000, KiB:1024, MiB:1048576, GiB:1073741824 } },
     speed:       { label: 'السرعة', base: { kmh:1, ms:3.6, mph:1.609344, knot:1.852, fts:1.09728 } },
@@ -21,7 +21,7 @@
     energy:      { label: 'الطاقة', base: { j:1, kj:1000, cal:4.184, kcal:4184, wh:3600, kwh:3600000, btu:1055.05585, ev:1.602176634e-19 } },
     power:       { label: 'القدرة', base: { w:1, kw:1000, mw:1000000, hp:745.699872, btuh:0.293071 } },
     angle:       { label: 'الزوايا', base: { deg:1, rad:57.29577951, grad:0.9, arcmin:0.016666667, arcsec:0.000277778, turn:360 } },
-    fuel:        { label: 'استهلاك الوقود', special: 'fuel', units: ['kml', 'l100', 'mpg'] },
+    fuel:        { label: 'استهلاك الوقود', special: 'fuel', units: ['kml', 'l100', 'mpg', 'mpgUK'] },
     frequency:   { label: 'التردد', base: { hz:1, khz:1000, mhz:1000000, ghz:1000000000, rpm:0.016666667 } }
   };
 
@@ -29,8 +29,11 @@
     var c = f === 'C' ? v : f === 'F' ? (v - 32) * 5 / 9 : v - 273.15;
     return t === 'C' ? c : t === 'F' ? c * 9 / 5 + 32 : c + 273.15;
   }
-  function fuelToKmL(v, u) { return u === 'kml' ? v : u === 'l100' ? 100 / v : v * 0.425143707; }
-  function kmLToUnit(v, u) { return u === 'kml' ? v : u === 'l100' ? 100 / v : v / 0.425143707; }
+  /* mpg factors: US gal = 3.785411784 L, Imperial gal = 4.54609 L (1 mi = 1.609344 km). */
+  var MPG_US = 0.425143707430272, MPG_UK = 0.3540061899346471;
+  function mpgFactor(u) { return u === 'mpgUK' ? MPG_UK : MPG_US; }
+  function fuelToKmL(v, u) { return u === 'kml' ? v : u === 'l100' ? 100 / v : v * mpgFactor(u); }
+  function kmLToUnit(v, u) { return u === 'kml' ? v : u === 'l100' ? 100 / v : v / mpgFactor(u); }
 
   /* Deterministic conversion — prefers converter.js's NexConvert if present,
    * otherwise uses the local tables (identical math). */

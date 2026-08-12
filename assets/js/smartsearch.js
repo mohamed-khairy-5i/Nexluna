@@ -57,7 +57,13 @@
     'م2': ['area', 'm2'], 'متر مربع': ['area', 'm2'], 'm2': ['area', 'm2'],
     'كم2': ['area', 'km2'], 'كيلومتر مربع': ['area', 'km2'], 'km2': ['area', 'km2'],
     'هكتار': ['area', 'ha'], 'hectare': ['area', 'ha'], 'ha': ['area', 'ha'],
-    'فدان': ['area', 'acre'], 'acre': ['area', 'acre']
+    /* Arabic land units are NOT the acre — kept distinct on purpose (this is the
+       exact confusion generic models make). فدّان=4200.833 m², acre=4046.856 m². */
+    'فدان': ['area', 'feddan'], 'فدّان': ['area', 'feddan'], 'الفدان': ['area', 'feddan'], 'feddan': ['area', 'feddan'], 'faddan': ['area', 'feddan'],
+    'قيراط': ['area', 'kirat'], 'قيراط ارض': ['area', 'kirat'], 'kirat': ['area', 'kirat'], 'qirat': ['area', 'kirat'],
+    'سهم': ['area', 'sahm'], 'sahm': ['area', 'sahm'],
+    'دونم': ['area', 'dunam'], 'دنم': ['area', 'dunam'], 'dunam': ['area', 'dunam'], 'donum': ['area', 'dunam'],
+    'اكر': ['area', 'acre'], 'أكر': ['area', 'acre'], 'acre': ['area', 'acre']
   };
 
   var CAT_LABEL = {
