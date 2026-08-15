@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate Nexluna content pages (about, contact, privacy, 404, blog)."""
 import os
-from build_pages import HEADER, FOOTER, BASE
+from build_pages import HEADER, FOOTER, BASE, CSP_META
 
 def page(path, title, desc, body, canonical=None, noindex=False, extra_head=""):
     canon = canonical or (BASE + "/" + path)
@@ -12,7 +12,7 @@ def page(path, title, desc, body, canonical=None, noindex=False, extra_head=""):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
+{CSP_META}  <title>{title}</title>
   <meta name="description" content="{desc}">
   <meta name="robots" content="{robots}">
   <meta name="theme-color" content="#4f46e5">

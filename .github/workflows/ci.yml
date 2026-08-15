@@ -1,0 +1,64 @@
+name: Nexluna CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate Python syntax
+        run: python -m py_compile build_home.py build_pages.py build_pairs.py scripts/generate_units.py test_*.py
+
+      - name: Regenerate canonical assets and pages
+        run: python build_home.py && python build_pages.py && python build_pairs.py && python build_content.py && python build_blog.py && python build_en.py && python scripts/build_sitemap.py
+
+      - name: Run conversion and data gates
+        run: |
+          python test_conversions.py
+          python test_units_data.py
+          python test_i18n.py
+          python test_pwa_accessibility.py
+          python test_seo.py
+          python test_week6.py
+          python test_hreflang_sitemap.py
+          python test_week8.py
+
+      - name: Run JavaScript contract gates
+        run: |
+          node test_smartsearch.js
+          node test_webmcp.js
+          node test_webmcp_eval.js
+          node --check assets/js/explain.js
+          node --check assets/js/embed.js
+          node --check assets/js/webmcp.js
+          node --check assets/js/converter.js
+          node --check assets/js/main.js
+
+      - name: Upload evaluation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nex-luna-webmcp-eval
+          path: reports/week7_webmcp_eval.json
+          if-no-files-found: ignore

@@ -1,0 +1,116 @@
+{
+  "comment": "Single canonical source for educational/SEO content. Articles reference units/categories only; build scripts generate HTML. New languages add sibling files (en.json) keyed by slug.",
+  "version": 1,
+  "articles": [
+    {
+      "slug": "length-conversion-guide",
+      "category": "length",
+      "title_ar": "الدليل الشامل لتحويل وحدات الطول",
+      "title_en": "The Complete Guide to Length Unit Conversion",
+      "date": "2025-01-15",
+      "read": "6",
+      "image": "/assets/img/blog/length.webp",
+      "excerpt_ar": "كل ما تحتاج معرفته للتحويل بين وحدات الطول المترية والإمبراطورية بدقة.",
+      "excerpt_en": "Everything you need to convert between metric and imperial length units accurately.",
+      "unit_pairs": [["km", "mi"], ["m", "ft"], ["cm", "in"]]
+    },
+    {
+      "slug": "cooking-measurement-conversion",
+      "category": "volume",
+      "title_ar": "تحويل وحدات القياس في الطبخ: دليل المطبخ العملي",
+      "title_en": "Cooking Measurement Conversion: A Practical Kitchen Guide",
+      "date": "2025-02-10",
+      "read": "5",
+      "image": "/assets/img/blog/cooking.webp",
+      "excerpt_ar": "دليل عملي لتحويل مقادير الطبخ بين الأكواب والغرامات والمليلترات.",
+      "excerpt_en": "A practical guide to converting cooking amounts between cups, grams, and milliliters.",
+      "unit_pairs": [["cup", "mL"], ["tbsp", "mL"], ["floz", "mL"]]
+    },
+    {
+      "slug": "temperature-conversion-guide",
+      "category": "temperature",
+      "title_ar": "تحويل درجات الحرارة: سيلسيوس وفهرنهايت وكلفن بالتفصيل",
+      "title_en": "Temperature Conversion: Celsius, Fahrenheit, and Kelvin in Detail",
+      "date": "2025-03-05",
+      "read": "6",
+      "image": "/assets/img/blog/temperature.webp",
+      "excerpt_ar": "شرح مبسّط لصيغ التحويل بين وحدات الحرارة الثلاث مع أمثلة.",
+      "excerpt_en": "A simple explanation of the three temperature scale formulas with examples.",
+      "unit_pairs": [["C", "F"], ["C", "K"], ["F", "K"]]
+    },
+    {
+      "slug": "data-storage-units-explained",
+      "category": "data",
+      "title_ar": "وحدات تخزين البيانات: الفرق بين الكيلوبايت والكيبي بايت",
+      "title_en": "Data Storage Units: Kilobyte vs Kibibyte Explained",
+      "date": "2025-04-12",
+      "read": "7",
+      "image": "/assets/img/blog/data.webp",
+      "excerpt_ar": "لماذا يظهر قرص 1 تيرابايت بسعة أقل؟ الفرق بين النظامين العشري والثنائي.",
+      "excerpt_en": "Why does a 1TB disk show less capacity? The difference between decimal and binary systems.",
+      "unit_pairs": [["GB", "GiB"], ["KB", "KiB"], ["MB", "MiB"]]
+    },
+    {
+      "slug": "weight-conversion-guide",
+      "category": "weight",
+      "title_ar": "دليل تحويل وحدات الوزن: كيلوغرام ورطل وأونصة",
+      "title_en": "Weight Conversion Guide: Kilograms, Pounds, and Ounces",
+      "date": "2025-05-08",
+      "read": "6",
+      "image": "/assets/img/blog/weight.webp",
+      "excerpt_ar": "كل ما تحتاجه للتحويل بين وحدات الوزن المترية والإمبراطورية بدقة.",
+      "excerpt_en": "Everything you need to convert between metric and imperial weight units accurately.",
+      "unit_pairs": [["kg", "lb"], ["lb", "oz"], ["g", "oz"]]
+    },
+    {
+      "slug": "speed-conversion-guide",
+      "category": "speed",
+      "title_ar": "دليل تحويل وحدات السرعة: كم/ساعة وميل/ساعة وعقدة",
+      "title_en": "Speed Conversion Guide: km/h, mph, and Knots",
+      "date": "2025-06-02",
+      "read": "5",
+      "image": "/assets/img/blog/speed.webp",
+      "excerpt_ar": "تعرّف على وحدات السرعة الشائعة وكيف تحوّل بينها للسفر والملاحة.",
+      "excerpt_en": "Learn the common speed units and how to convert between them for travel and navigation.",
+      "unit_pairs": [["kmh", "mph"], ["kmh", "ms"], ["mph", "knot"]]
+    },
+    {
+      "slug": "natural-language-conversion-search",
+      "category": "length",
+      "title_ar": "البحث الذكي: حوّل الوحدات بجملة طبيعية بدل الجداول",
+      "title_en": "Smart Search: Convert Units With a Natural Sentence",
+      "date": "2025-07-01",
+      "read": "4",
+      "image": "/assets/img/blog/search.webp",
+      "excerpt_ar": "اكتب استفسارك بالعربي أو الإنجليزي واحصل على النتيجة فورًا دون البحث في القوائم.",
+      "excerpt_en": "Type your question in Arabic or English and get an instant result without digging through dropdowns.",
+      "unit_pairs": [["km", "mi"], ["m", "cm"], ["mi", "km"]]
+    },
+    {
+      "slug": "area-measurement-guide",
+      "category": "area",
+      "title_ar": "دليل قياس المساحات: الفدّان والقيراط والهكتار والأكر",
+      "title_en": "Land Area Measurement: Feddan, Carat, Hectare, and Acre",
+      "date": "2025-08-05",
+      "read": "6",
+      "image": "/assets/img/blog/area.webp",
+      "excerpt_ar": "الفرق بين الفدّان المصري والأكر الدولي ولماذا يخلط بينهما كثيرون.",
+      "excerpt_en": "The difference between the Egyptian feddan and the international acre, and why people mix them up.",
+      "unit_pairs": [["feddan", "m2"], ["acre", "feddan"], ["ha", "feddan"]]
+    },
+    {
+      "slug": "fuel-economy-units",
+      "category": "fuel",
+      "title_ar": "وحدات استهلاك الوقود: كم/لتر وmpg الامريكية والبريطانية",
+      "title_en": "Fuel Economy Units: km/L, US mpg, and UK mpg",
+      "date": "2025-09-01",
+      "read": "5",
+      "image": "/assets/img/blog/fuel.webp",
+      "excerpt_ar": "لماذا تختلف أرقام استهلاك الوقود بين أمريكا وبريطانيا والوطن العربي؟",
+      "excerpt_en": "Why do fuel economy numbers differ between the US, the UK, and the Arab world?",
+      "unit_pairs": [["kml", "mpg"], ["l100", "kml"], ["mpg", "mpgUK"]]
+    }
+  ],
+  "faq_topics": ["feddan-vs-acre", "gb-vs-gib", "celsius-fahrenheit", "us-vs-imperial-gallon", "kb-vs-kib"],
+  "glossary_note": "Article bodies stay in build_blog.py for now; slugs here become the single registry for indexes, sitemaps, and later i18n article pages."
+}

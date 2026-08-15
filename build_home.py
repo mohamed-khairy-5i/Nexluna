@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the premium Nexluna homepage (index.html)."""
 import os
-from build_pages import HEADER, FOOTER, BASE, ADSENSE, PAGES, ORDER, DEV, DEV_PERSON_JSONLD
+from build_pages import HEADER, FOOTER, BASE, ADSENSE, CSP_META, PAGES, ORDER, DEV, DEV_PERSON_JSONLD
 
 # Category cards for the converter grid (all 14)
 CARD_DESC = {
@@ -89,7 +89,7 @@ HTML = '''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexluna | محوّل وحدات القياس العربي الأدق والأسرع — مجانًا</title>
+''' + CSP_META + '''  <title>Nexluna | محوّل وحدات القياس العربي الأدق والأسرع — مجانًا</title>
   <meta name="description" content="Nexluna منصّة عربية فخمة لتحويل وحدات القياس: الطول، الوزن، الحرارة، الحجم، البيانات، السرعة والمزيد — 14 فئة و100+ وحدة بدقة فورية، تعمل دون إنترنت وبدون تتبّع.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="theme-color" content="#4f46e5">
@@ -98,6 +98,7 @@ HTML = '''<!DOCTYPE html>
   <link rel="canonical" href="''' + BASE + '''/">
   <link rel="alternate" hreflang="ar" href="''' + BASE + '''/">
   <link rel="alternate" hreflang="x-default" href="''' + BASE + '''/">
+  <link rel="alternate" hreflang="en" href="''' + BASE + '''/en/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nexluna">
@@ -180,29 +181,38 @@ HTML = '''<!DOCTYPE html>
 ''' + HEADER + '''
   <main id="main">
 
-    <!-- Hero: problem → instrument → one CTA -->
+    <!-- Hero: visible product proposition + deterministic instrument -->
     <section class="hero">
-      <div class="container">
-        <span class="eyebrow"><span class="dot"></span> محوّل الوحدات العربي · أسرع طريقة للإجابة</span>
-        <h1>اسأل بلغتك.<br><span class="grad">احصل على الرقم فورًا.</span></h1>
-        <p class="lead">اكتب سؤالك كما تنطقه — «5 كم بالميل» أو «100 celsius to F» — فيفهمه Nexluna ويجيبك في لحظة. 14 فئة، أكثر من 100 وحدة، بلا تتبّع، ويعمل دون إنترنت.</p>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="dot"></span> طبقة قياس عربية · واضحة وموثوقة</span>
+          <h1>حوّل أي قياس.<br><span class="grad">وافهم النتيجة فورًا.</span></h1>
+          <p class="lead">اكتب سؤالك كما تنطقه — «5 كم بالميل» أو «100 celsius to F» — ويحوّله Nexluna إلى رقم دقيق، مفهوم، وقابل للنسخ. بلا تخمين، بلا تسجيل، ويعمل دون إنترنت.</p>
 
-        <!-- Signature AI entry: deterministic natural-language search -->
-        <div class="smart-search-host reveal" id="smart-search"></div>
+          <!-- Deterministic natural-language search -->
+          <div class="smart-search-host reveal" id="smart-search"></div>
 
-        <div class="hero-cta">
-          <a href="#converter" class="btn btn-primary"><span data-icon="bolt"></span> افتح المحوّل الكامل</a>
+          <div class="hero-cta">
+            <a href="#converter" class="btn btn-primary"><span data-icon="bolt"></span> ابدأ التحويل الآن</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><b>14</b><span>فئة قياس</span></div>
+            <div class="hero-stat"><b>+100</b><span>وحدة مدعومة</span></div>
+            <div class="hero-stat"><b>0</b><span>تتبّع أو تسجيل</span></div>
+          </div>
+          <div class="trust-bar">
+            <span class="chip"><span data-icon="bolt"></span> نتائج فورية</span>
+            <span class="chip"><span data-icon="offline"></span> يعمل دون إنترنت</span>
+            <span class="chip"><span data-icon="shield"></span> الحساب حتمي</span>
+            <span class="chip"><span data-icon="globe"></span> عربي RTL</span>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><b>14</b><span>فئة قياس</span></div>
-          <div class="hero-stat"><b>+100</b><span>وحدة مدعومة</span></div>
-          <div class="hero-stat"><b>0</b><span>تتبّع أو تسجيل</span></div>
-        </div>
-        <div class="trust-bar">
-          <span class="chip"><span data-icon="bolt"></span> نتائج فورية</span>
-          <span class="chip"><span data-icon="offline"></span> يعمل دون إنترنت</span>
-          <span class="chip"><span data-icon="shield"></span> بدون تتبّع</span>
-          <span class="chip"><span data-icon="globe"></span> عربي RTL</span>
+        <div class="hero-preview reveal" aria-label="عرض مرئي لتحويل القياس">
+          <div class="preview-orbit">
+            <div class="preview-core"><span data-icon="bolt"></span></div>
+            <span class="preview-label top">5 km<small>المُدخل</small></span>
+            <span class="preview-label bottom">3.10686 mi<small>الناتج الدقيق</small></span>
+          </div>
         </div>
       </div>
     </section>
@@ -270,10 +280,14 @@ HTML = '''<!DOCTYPE html>
 
     <!-- CTA band -->
     <section class="container section">
-      <div class="cta-band reveal">
+      <div class="cta-band reveal" id="install-app">
         <h2>ثبّت Nexluna على جهازك</h2>
         <p>أضف المحوّل إلى شاشتك الرئيسية واستخدمه كأي تطبيق — بسرعة وبدون إنترنت.</p>
-        <a href="#converter" class="btn btn-outline"><span data-icon="bolt"></span> جرّبه الآن</a>
+        <div class="cta-actions">
+          <button class="btn btn-primary" type="button" data-pwa-install hidden><span data-icon="download"></span> ثبّت التطبيق</button>
+          <a href="#converter" class="btn btn-outline"><span data-icon="bolt"></span> جرّبه الآن</a>
+        </div>
+        <p class="install-hint" data-install-hint hidden>إذا لم يظهر زر التثبيت، افتح قائمة المتصفح واختر «إضافة إلى الشاشة الرئيسية».</p>
       </div>
     </section>
 
@@ -292,9 +306,11 @@ HTML = '''<!DOCTYPE html>
   </main>
 ''' + FOOTER + '''
   <script src="/assets/js/icons.js" defer></script>
+  <script src="/assets/js/units.generated.js" defer></script>
+  <script src="/assets/js/explain.js" defer></script>
+  <script src="/assets/js/webmcp.js" defer></script>
   <script src="/assets/js/converter.js" defer></script>
   <script src="/assets/js/smartsearch.js" defer></script>
-  <script src="/assets/js/webmcp.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

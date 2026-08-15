@@ -5,14 +5,14 @@ WHY THIS FILE EXISTS
 --------------------
 The product's only defensible claim is *deterministic correctness* — an LLM can
 guess a conversion, we must never be wrong. That claim is worthless without a
-test, and this codebase mirrors its factor tables in FOUR places
-(assets/js/converter.js, assets/js/webmcp.js, build_pairs.py, build_md.py).
+test, and this codebase previously mirrored its factor tables in FOUR places.
+The canonical source is now data/units.json; generated/browser mirrors remain checked against it.
 Mirrored data drifts; drift already shipped one real bug (فدّان labelled as
 `acre`, a 3.8% error on every Egyptian land conversion).
 
 So this gate asserts two things:
   1. ACCURACY  — factors match authoritative values (BIPM/NIST/Wikipedia).
-  2. CONSISTENCY — the mirrors agree with each other, so drift fails loudly.
+  2. CONSISTENCY — generated/browser mirrors agree with the canonical source, so drift fails loudly.
 
 Run:  python3 test_conversions.py     (exit 0 = pass, 1 = fail)
 """
@@ -49,6 +49,16 @@ def extract_js_table(path):
         if factors:
             tables[cat] = factors
     return tables
+
+
+def load_canonical_table(path):
+    """Read base factors from the canonical JSON source."""
+    data = json.load(open(path, encoding="utf-8"))
+    return {
+        category: definition.get("base", {})
+        for category, definition in data.items()
+        if definition.get("base")
+    }
 
 
 # ---------------------------------------------------------------- ground truth
@@ -88,21 +98,27 @@ WEIGHT_TRUTH = {
 
 
 def main():
-    conv = extract_js_table(os.path.join(HERE, "assets/js/converter.js"))
+    conv = load_canonical_table(os.path.join(HERE, "data/units.json"))
+    webmcp_src = open(os.path.join(HERE, "assets/js/webmcp.js"), encoding="utf-8").read()
     mcp = extract_js_table(os.path.join(HERE, "assets/js/webmcp.js"))
+    if "root.NexlunaUnits" not in webmcp_src:
+        FAILURES.append("webmcp.js does not consume the generated canonical units source")
+    for tool_name in ("convert_units", "list_units", "get_unit_info"):
+        if "name: '" + tool_name + "'" not in webmcp_src:
+            FAILURES.append(f"webmcp.js missing tool '{tool_name}'")
 
     # ---- 1. accuracy of the canonical engine -----------------------------
     for cat, truth in (("area", AREA_TRUTH), ("volume", VOLUME_TRUTH),
                        ("length", LENGTH_TRUTH), ("weight", WEIGHT_TRUTH)):
         table = conv.get(cat, {})
         if not table:
-            FAILURES.append(f"converter.js: category '{cat}' has no base table")
+            FAILURES.append(f"data/units.json: category '{cat}' has no base table")
             continue
         for unit, want in truth.items():
             if unit not in table:
-                FAILURES.append(f"converter.js {cat}: missing unit '{unit}'")
+                FAILURES.append(f"data/units.json {cat}: missing unit '{unit}'")
             else:
-                check(f"converter.js {cat}.{unit}", table[unit], want)
+                check(f"data/units.json {cat}.{unit}", table[unit], want)
 
     # ---- 2. the specific bug this suite was written to prevent ------------
     area = conv.get("area", {})
@@ -125,9 +141,9 @@ def main():
             continue
         for unit, val in table.items():
             if unit not in mcp[cat]:
-                FAILURES.append(f"webmcp.js {cat}: missing '{unit}' present in converter.js")
+                FAILURES.append(f"webmcp.js {cat}: missing '{unit}' present in data/units.json")
             else:
-                check(f"mirror {cat}.{unit}", mcp[cat][unit], val)
+                check(f"webmcp mirror {cat}.{unit}", mcp[cat][unit], val)
 
     # build_pairs.py mirrors a subset of the same factors
     pairs_src = open(os.path.join(HERE, "build_pairs.py"), encoding="utf-8").read()
@@ -165,7 +181,7 @@ def main():
         print("\nConversion accuracy is the product's core promise. Fix before deploy.")
         return 1
     print(f"PASS — {CHECKS[0]} conversion checks OK "
-          f"(accuracy + mirror consistency across converter.js, webmcp.js, build_pairs.py).")
+          f"(accuracy + mirror consistency across units.json, webmcp.js, build_pairs.py).")
     return 0
 
 

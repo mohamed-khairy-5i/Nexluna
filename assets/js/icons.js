@@ -35,6 +35,7 @@
     arrow: '<path ' + P + ' d="M5 12h14"/><path ' + P + ' d="M13 6l6 6-6 6"/>',
     check: '<path ' + P + ' d="M20 6 9 17l-5-5"/>',
     bolt: '<path ' + P + ' d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+    spark: '<path ' + P + ' d="M12 3v5M12 16v5M3 12h5M16 12h5M5.6 5.6l3.5 3.5M14.9 14.9l3.5 3.5M18.4 5.6l-3.5 3.5M9.1 14.9l-3.5 3.5"/>',
     grid: '<rect x="3" y="3" width="7" height="7" rx="1.5" ' + P + '/><rect x="14" y="3" width="7" height="7" rx="1.5" ' + P + '/><rect x="3" y="14" width="7" height="7" rx="1.5" ' + P + '/><rect x="14" y="14" width="7" height="7" rx="1.5" ' + P + '/>',
     offline: '<path ' + P + ' d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 20h.01"/><path ' + P + ' d="M3 3l18 18"/>',
     shield: '<path ' + P + ' d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path ' + P + ' d="M9 12l2 2 4-4"/>',

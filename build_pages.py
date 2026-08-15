@@ -2,10 +2,12 @@
 """Static page generator for Nexluna converter pages.
 Generates /converters/*.html for all 14 categories with the premium design.
 Also exposes shared HEADER/FOOTER/BASE for build_content.py and build_blog.py."""
+import json
 import os
 
 BASE = "https://nexluna.netlify.app"
 ADSENSE = "ca-pub-9822291009441043"
+CSP_META = ('  <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; base-uri \'self\'; object-src \'none\'; frame-ancestors \'self\'; form-action \'self\'; script-src \'self\' \'unsafe-inline\' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; connect-src \'self\' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; style-src \'self\' \'unsafe-inline\'; img-src \'self\' data: https:; font-src \'self\' data:; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; worker-src \'self\'; manifest-src \'self\'">\n')
 
 # ---- Developer credit (single source of truth — change here to re-brand/remove) ----
 DEV = {
@@ -60,6 +62,7 @@ HEADER = '''  <header class="site-header">
         <a href="/converters/data.html">البيانات</a>
         <a href="/blog/">المدونة</a>
         <a href="/about.html">عن الموقع</a>
+        <a href="/en/" lang="en">English</a>
       </nav>
       <div class="nav-actions">
         <button class="icon-btn" data-theme-toggle type="button" aria-label="تبديل الوضع الليلي"><span data-icon="moon"></span></button>
@@ -211,6 +214,17 @@ PAGES = {
 ORDER = list(PAGES.keys())
 
 
+def hreflang_ar(path):
+    """Alternates for an Arabic category page: en + x-default pointing at /en/ counterpart."""
+    return ('  <link rel="alternate" hreflang="en" href="' + BASE + '/en' + path + '">\n'
+            '  <link rel="alternate" hreflang="x-default" href="' + BASE + '/en' + path + '">\n')
+
+
+def hreflang_en(path):
+    """Alternates for an English /en/ page: ar pointing back at the Arabic page."""
+    return '  <link rel="alternate" hreflang="ar" href="' + BASE + path + '">\n'
+
+
 def faq_jsonld(items):
     ent = ",".join(
         '{ "@type": "Question", "name": "%s", "acceptedAnswer": { "@type": "Answer", "text": "%s" } }' % (q, a)
@@ -224,6 +238,22 @@ def faq_html(items):
     for q, a in items:
         out.append('        <details class="faq-item"><summary>%s</summary><p>%s</p></details>' % (q, a))
     return "\n".join(out)
+
+
+def howto_jsonld(page):
+    payload = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "طريقة استخدام محول %s" % page["name"],
+        "description": page["intro"],
+        "totalTime": "PT1M",
+        "step": [
+            {"@type": "HowToStep", "position": 1, "name": "أدخل القيمة", "text": "أدخل القيمة المراد تحويلها في الحقل الأول."},
+            {"@type": "HowToStep", "position": 2, "name": "اختر الوحدات", "text": "اختر وحدة المصدر ووحدة النتيجة من القائمتين."},
+            {"@type": "HowToStep", "position": 3, "name": "راجع النتيجة", "text": "راجع النتيجة الدقيقة وانسخها أو شارك الرابط."},
+        ],
+    }
+    return json.dumps(payload, ensure_ascii=False)
 
 
 def related_cards(cur):
@@ -249,14 +279,16 @@ TEMPLATE = '''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
+{csp_meta}  <title>{title}</title>
   <meta name="description" content="{desc}">
+  <meta name="keywords" content="{keywords}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="theme-color" content="#4f46e5">
   <meta name="author" content="Nexluna">
   <link rel="canonical" href="{base}/converters/{cat}.html">
   <link rel="alternate" hreflang="ar" href="{base}/converters/{cat}.html">
   <link rel="alternate" hreflang="x-default" href="{base}/converters/{cat}.html">
+  <link rel="alternate" hreflang="en" href="{base}/en/converters/{cat}.html">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nexluna">
@@ -305,11 +337,16 @@ TEMPLATE = '''<!DOCTYPE html>
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "inLanguage": "ar",
+    "dateModified": "2026-08-15",
+    "author": {author_jsonld},
     "offers": {{ "@type": "Offer", "price": "0", "priceCurrency": "USD" }}
   }}
   </script>
   <script type="application/ld+json">
   {faq_ld}
+  </script>
+  <script type="application/ld+json">
+  {howto_ld}
   </script>
 
 {ads_loader}
@@ -322,11 +359,15 @@ TEMPLATE = '''<!DOCTYPE html>
       <nav class="breadcrumb" aria-label="مسار التنقل">
         <a href="/">الرئيسية</a> <span aria-hidden="true">›</span> <a href="/#converters">المحولات</a> <span aria-hidden="true">›</span> <span>{name}</span>
       </nav>
-      <div class="section-head reveal" style="margin-bottom:var(--sp-6)">
-        <span class="eyebrow"><span data-icon="{icon}"></span> محوّل {name}</span>
-        <h1>محول وحدات {name}</h1>
-        <p class="lead">{intro}</p>
-      </div>
+      <section class="category-hero reveal" aria-labelledby="category-title">
+        <div class="category-hero-icon"><span data-icon="{icon}"></span></div>
+        <div class="category-hero-copy">
+          <span class="eyebrow"><span data-icon="bolt"></span> محوّل {name} · نتيجة فورية</span>
+          <h1 id="category-title">حوّل وحدات {name}<br><span>بوضوح وثقة.</span></h1>
+          <p>{intro}</p>
+          <div class="category-hero-pills"><span>حساب حتمي</span><span>نسخ ومشاركة</span><span>يعمل دون إنترنت</span></div>
+        </div>
+      </section>
 
       <div class="converter reveal" id="converter-app" data-only="{cat}"><div class="conv-skeleton" aria-hidden="true"><div class="sk sk-tabs"></div><div class="sk-row"><div class="sk sk-field"></div><div class="sk sk-swap"></div><div class="sk sk-field"></div></div><div class="sk sk-result"></div></div></div>
 
@@ -360,8 +401,10 @@ TEMPLATE = '''<!DOCTYPE html>
   </main>
 {footer}
   <script src="/assets/js/icons.js" defer></script>
-  <script src="/assets/js/converter.js" defer></script>
+  <script src="/assets/js/units.generated.js" defer></script>
+  <script src="/assets/js/explain.js" defer></script>
   <script src="/assets/js/webmcp.js" defer></script>
+  <script src="/assets/js/converter.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
@@ -386,9 +429,11 @@ def main():
     for cat, p in PAGES.items():
         html = TEMPLATE.format(
             base=BASE, cat=cat, name=p["name"], title=p["title"], desc=p["desc"],
+            keywords="محول %s, تحويل %s, محول عربي %s, Nexluna" % (p["name"], p["name"], p["name"]),
             intro=p["intro"], icon=p["icon"], header=HEADER, footer=FOOTER, adsense=ADSENSE,
-            faq_ld=faq_jsonld(p["faq"]), faq_html=faq_html(p["faq"]),
-            related=related_cards(cat), ads_loader=ADS_LOADER,
+            faq_ld=faq_jsonld(p["faq"]), howto_ld=howto_jsonld(p), author_jsonld=DEV_PERSON_JSONLD,
+            faq_html=faq_html(p["faq"]), related=related_cards(cat), ads_loader=ADS_LOADER,
+            csp_meta=CSP_META,
         )
         with open(os.path.join(outdir, cat + ".html"), "w", encoding="utf-8") as f:
             f.write(html)

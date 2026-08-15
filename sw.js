@@ -1,5 +1,5 @@
 /* Nexluna service worker — offline-first for visited pages + static assets. */
-const CACHE = 'nexluna-v2';
+const CACHE = 'nexluna-v6';
 const CORE = [
   '/',
   '/index.html',
@@ -7,10 +7,20 @@ const CORE = [
   '/assets/css/style.css',
   '/assets/js/icons.js',
   '/assets/js/main.js',
+  '/assets/js/smartsearch.js',
+  '/assets/js/units.generated.js',
+  '/assets/js/locale.en.generated.js',
+  '/assets/js/explain.js',
+  '/assets/js/webmcp.js',
   '/assets/js/converter.js',
+  '/assets/js/embed.js',
+  '/embed.html',
   '/assets/img/logo.svg',
   '/assets/img/icon-192.png',
-  '/manifest.webmanifest'
+  '/manifest.webmanifest',
+  '/en/',
+  '/en/index.html',
+  '/en/converters/index.html'
 ];
 
 self.addEventListener('install', (e) => {

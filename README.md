@@ -60,12 +60,15 @@
 ├── about.html contact.html privacy.html 404.html offline.html
 ├── assets/
 │   ├── css/style.css          # نظام التصميم
-│   ├── js/converter.js        # محرّك التحويل (14 فئة)
+│   ├── js/converter.js        # محرّك التحويل (يستهلك البيانات المولدة)
+│   ├── js/units.generated.js  # ملف متصفح مولد من data/units.json
 │   ├── js/webmcp.js           # تسجيل أدوات WebMCP للوكلاء
 │   ├── js/smartsearch.js      # بحث لغة طبيعية
 │   └── js/main.js             # سلوك الواجهة (القائمة، الوضع الليلي، PWA)
 ├── manifest.webmanifest  sw.js
 ├── sitemap.xml robots.txt llms.txt
+├── data/units.json            # المصدر canonical لتعريفات الوحدات
+├── scripts/generate_units.py  # التحقق والتوليد من المصدر canonical
 ├── netlify.toml               # النشر، الأمان، الترويسات، Edge Functions
 └── build_*.py                 # مولّدات الصفحات الثابتة
 ```
@@ -79,9 +82,18 @@ python3 -m http.server 8080     # ثم افتح http://localhost:8080
 إعادة توليد كل الصفحات والملفات بعد أي تعديل في سكربتات البناء (بالترتيب):
 
 ```bash
+python3 scripts/generate_units.py
 python3 build_pages.py && python3 build_home.py && python3 build_content.py \
   && python3 build_blog.py && python3 build_pairs.py && python3 build_sitemap.py \
   && python3 build_llms.py && python3 build_md.py && python3 build_skills.py
+```
+
+قبل الالتزام بالتغييرات، شغّل بوابات الدقة والبحث الطبيعي:
+
+```bash
+python3 scripts/generate_units.py --check
+node test_smartsearch.js
+python3 test_conversions.py
 ```
 
 ## 🚀 النشر | Deployment

@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-15T16:31:43.507Z",
+  "api_version": "1.0.0",
+  "cases_total": 14,
+  "cases_passed": 14,
+  "pass_rate": 1,
+  "max_relative_error": 5.379660867220314e-11,
+  "tolerance": 1e-9,
+  "deterministic_invariants": {
+    "all_deterministic": true,
+    "network_required": false,
+    "explanation_numeric_match": true
+  },
+  "typed_error_contract": {
+    "unknown_unit": true
+  },
+  "cases": [
+    {
+      "category": "length",
+      "from": "km",
+      "to": "m",
+      "value": 1,
+      "expected": 1000,
+      "actual": 1000,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "weight",
+      "from": "kg",
+      "to": "lb",
+      "value": 1,
+      "expected": 2.2046226218487757,
+      "actual": 2.2046226218487757,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "area",
+      "from": "feddan",
+      "to": "m2",
+      "value": 1,
+      "expected": 4200.833,
+      "actual": 4200.833,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "volume",
+      "from": "L",
+      "to": "mL",
+      "value": 1,
+      "expected": 1000,
+      "actual": 1000,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "temperature",
+      "from": "C",
+      "to": "F",
+      "value": 0,
+      "expected": 32,
+      "actual": 32,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "data",
+      "from": "KB",
+      "to": "B",
+      "value": 1,
+      "expected": 1000,
+      "actual": 1000,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "speed",
+      "from": "kmh",
+      "to": "mph",
+      "value": 100,
+      "expected": 62.13711922373339,
+      "actual": 62.13711922373339,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "time",
+      "from": "h",
+      "to": "s",
+      "value": 1,
+      "expected": 3600,
+      "actual": 3600,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "pressure",
+      "from": "atm",
+      "to": "pa",
+      "value": 1,
+      "expected": 101325,
+      "actual": 101325,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "energy",
+      "from": "kwh",
+      "to": "j",
+      "value": 1,
+      "expected": 3600000,
+      "actual": 3600000,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "power",
+      "from": "kw",
+      "to": "w",
+      "value": 1,
+      "expected": 1000,
+      "actual": 1000,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "angle",
+      "from": "deg",
+      "to": "rad",
+      "value": 180,
+      "expected": 3.141592653589793,
+      "actual": 3.1415926537588,
+      "relative_error": 5.379660867220314e-11,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "fuel",
+      "from": "kml",
+      "to": "l100",
+      "value": 1,
+      "expected": 100,
+      "actual": 100,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    },
+    {
+      "category": "frequency",
+      "from": "ghz",
+      "to": "hz",
+      "value": 1,
+      "expected": 1000000000,
+      "actual": 1000000000,
+      "relative_error": 0,
+      "deterministic": true,
+      "network_required": false,
+      "explanation_source": "deterministic-fallback"
+    }
+  ]
+}

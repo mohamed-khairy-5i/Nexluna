@@ -1,0 +1,1611 @@
+{
+  "length": {
+    "icon": "length",
+    "label": "الطول",
+    "title": "محول وحدات الطول",
+    "units": [
+      [
+        "km",
+        "كيلومتر (km)"
+      ],
+      [
+        "m",
+        "متر (m)"
+      ],
+      [
+        "cm",
+        "سنتيمتر (cm)"
+      ],
+      [
+        "mm",
+        "مليمتر (mm)"
+      ],
+      [
+        "mi",
+        "ميل (mi)"
+      ],
+      [
+        "yd",
+        "ياردة (yd)"
+      ],
+      [
+        "ft",
+        "قدم (ft)"
+      ],
+      [
+        "in",
+        "إنش (in)"
+      ],
+      [
+        "nmi",
+        "ميل بحري (nmi)"
+      ]
+    ],
+    "base": {
+      "km": 1000,
+      "m": 1,
+      "cm": 0.01,
+      "mm": 0.001,
+      "mi": 1609.344,
+      "yd": 0.9144,
+      "ft": 0.3048,
+      "in": 0.0254,
+      "nmi": 1852
+    },
+    "formulas": [
+      "1 متر = 100 سم = 1000 مم",
+      "1 كم = 1000 متر",
+      "1 ميل = 1.60934 كم",
+      "1 قدم = 0.3048 متر",
+      "1 إنش = 2.54 سم"
+    ],
+    "common": [
+      "1 متر = 3.28084 قدم",
+      "1 كم = 0.621371 ميل",
+      "1 ياردة = 0.9144 متر",
+      "1 قدم = 12 إنش"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and customary length units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "NIST SP 811 Appendix B; factors expressed against metre."
+    },
+    "unit_provenance": {
+      "km": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "كيلومتر (km); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "m": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "متر (m); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "cm": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "سنتيمتر (cm); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mm": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "مليمتر (mm); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mi": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "ميل (mi); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "yd": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "ياردة (yd); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "ft": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "قدم (ft); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "in": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "إنش (in); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "nmi": {
+        "system": "SI-derived and customary length units",
+        "region": "international",
+        "definition": "ميل بحري (nmi); factor is maintained in the canonical base table for length.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "weight": {
+    "icon": "weight",
+    "label": "الوزن",
+    "title": "محول وحدات الوزن",
+    "units": [
+      [
+        "t",
+        "طن (t)"
+      ],
+      [
+        "kg",
+        "كيلوغرام (kg)"
+      ],
+      [
+        "g",
+        "غرام (g)"
+      ],
+      [
+        "mg",
+        "مليغرام (mg)"
+      ],
+      [
+        "lb",
+        "رطل (lb)"
+      ],
+      [
+        "oz",
+        "أونصة (oz)"
+      ],
+      [
+        "st",
+        "ستون (st)"
+      ],
+      [
+        "ct",
+        "قيراط (ct)"
+      ]
+    ],
+    "base": {
+      "t": 1000,
+      "kg": 1,
+      "g": 0.001,
+      "mg": 1e-06,
+      "lb": 0.45359237,
+      "oz": 0.028349523,
+      "st": 6.35029318,
+      "ct": 0.0002
+    },
+    "formulas": [
+      "1 كغ = 1000 غرام",
+      "1 طن = 1000 كغ",
+      "1 رطل = 0.453592 كغ",
+      "1 أونصة = 28.3495 غرام"
+    ],
+    "common": [
+      "1 كغ = 2.20462 رطل",
+      "1 رطل = 16 أونصة",
+      "1 طن = 2204.62 رطل"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and customary mass units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "NIST SP 811 Appendix B; factors expressed against kilogram."
+    },
+    "unit_provenance": {
+      "t": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "طن (t); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "kg": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "كيلوغرام (kg); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "g": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "غرام (g); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mg": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "مليغرام (mg); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "lb": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "رطل (lb); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "oz": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "أونصة (oz); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "st": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "ستون (st); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "ct": {
+        "system": "SI-derived and customary mass units",
+        "region": "international",
+        "definition": "قيراط (ct); factor is maintained in the canonical base table for weight.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "area": {
+    "icon": "area",
+    "label": "المساحة",
+    "title": "محول وحدات المساحة",
+    "units": [
+      [
+        "km2",
+        "كم مربع (km²)"
+      ],
+      [
+        "m2",
+        "متر مربع (m²)"
+      ],
+      [
+        "cm2",
+        "سم مربع (cm²)"
+      ],
+      [
+        "ha",
+        "هكتار (ha)"
+      ],
+      [
+        "feddan",
+        "فدّان (مصري)"
+      ],
+      [
+        "kirat",
+        "قيراط (1/24 فدّان)"
+      ],
+      [
+        "sahm",
+        "سهم (1/24 قيراط)"
+      ],
+      [
+        "dunam",
+        "دونم (متري)"
+      ],
+      [
+        "acre",
+        "أكر (acre)"
+      ],
+      [
+        "ft2",
+        "قدم مربع (ft²)"
+      ],
+      [
+        "in2",
+        "إنش مربع (in²)"
+      ],
+      [
+        "mi2",
+        "ميل مربع (mi²)"
+      ]
+    ],
+    "base": {
+      "km2": 1000000,
+      "m2": 1,
+      "cm2": 0.0001,
+      "ha": 10000,
+      "feddan": 4200.833,
+      "kirat": 175.03470833333333,
+      "sahm": 7.293112847222222,
+      "dunam": 1000,
+      "acre": 4046.8564224,
+      "ft2": 0.09290304,
+      "in2": 0.00064516,
+      "mi2": 2589988.11
+    },
+    "formulas": [
+      "1 فدّان = 4200.833 م² = 24 قيراط",
+      "1 قيراط = 175.035 م² = 24 سهم",
+      "1 دونم متري = 1000 م²",
+      "1 أكر (acre) = 4046.86 م²",
+      "1 هكتار = 10,000 م²"
+    ],
+    "common": [
+      "1 فدّان = 1.03805 أكر (ليسا نفس الوحدة)",
+      "1 هكتار = 2.38047 فدّان",
+      "1 فدّان = 0.42008 هكتار",
+      "1 م² = 10.7639 قدم²",
+      "1 أكر = 43,560 قدم²"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived, customary, and Egyptian land-area units",
+      "region": "international / Egypt",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "NIST SP 811 for international factors; Egyptian land-unit note below."
+    },
+    "unit_provenance": {
+      "km2": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "كم مربع (km²); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "m2": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "متر مربع (m²); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "cm2": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "سم مربع (cm²); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "ha": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "هكتار (ha); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "feddan": {
+        "system": "Egyptian land area",
+        "region": "Egypt",
+        "definition": "Egyptian feddan is treated as 4,200.833 m²; it is divided into 24 kirat.",
+        "source": "https://en.wikipedia.org/wiki/Feddan",
+        "reviewed": "2026-08-15"
+      },
+      "kirat": {
+        "system": "Egyptian land area",
+        "region": "Egypt",
+        "definition": "Egyptian land kirat is 1/24 of a feddan, approximately 175.0347083333 m².",
+        "source": "https://en.wikipedia.org/wiki/Feddan",
+        "reviewed": "2026-08-15"
+      },
+      "sahm": {
+        "system": "Egyptian land area",
+        "region": "Egypt",
+        "definition": "Egyptian land sahm is 1/24 of a kirat, approximately 7.2931128472 m².",
+        "source": "https://en.wikipedia.org/wiki/Feddan",
+        "reviewed": "2026-08-15"
+      },
+      "dunam": {
+        "system": "metric land area",
+        "region": "Levant / regional usage",
+        "definition": "This dataset uses the metric dunam definition of exactly 1,000 m²; regional usage can vary and should be stated.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "acre": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "أكر (acre); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "ft2": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "قدم مربع (ft²); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "in2": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "إنش مربع (in²); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mi2": {
+        "system": "SI-derived, customary, and Egyptian land-area units",
+        "region": "international / Egypt",
+        "definition": "ميل مربع (mi²); factor is maintained in the canonical base table for area.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "volume": {
+    "icon": "volume",
+    "label": "الحجم",
+    "title": "محول الحجم والسعة",
+    "units": [
+      [
+        "m3",
+        "متر مكعب (m³)"
+      ],
+      [
+        "L",
+        "لتر (L)"
+      ],
+      [
+        "mL",
+        "مليلتر (mL)"
+      ],
+      [
+        "gal",
+        "جالون أمريكي (US gal)"
+      ],
+      [
+        "galUK",
+        "جالون إمبراطوري (UK gal)"
+      ],
+      [
+        "qt",
+        "كوارت أمريكي (qt)"
+      ],
+      [
+        "pt",
+        "باينت أمريكي (pt)"
+      ],
+      [
+        "cup",
+        "كوب (240 مل)"
+      ],
+      [
+        "floz",
+        "أونصة سائلة أمريكية (fl oz)"
+      ],
+      [
+        "tbsp",
+        "ملعقة كبيرة (15 مل)"
+      ],
+      [
+        "tsp",
+        "ملعقة صغيرة (5 مل)"
+      ]
+    ],
+    "base": {
+      "m3": 1000,
+      "L": 1,
+      "mL": 0.001,
+      "gal": 3.785411784,
+      "galUK": 4.54609,
+      "qt": 0.946352946,
+      "pt": 0.473176473,
+      "cup": 0.2365882365,
+      "floz": 0.0295735296,
+      "tbsp": 0.0147867648,
+      "tsp": 0.0049289216
+    },
+    "formulas": [
+      "1 لتر = 1000 مل",
+      "1 م³ = 1000 لتر",
+      "1 جالون أمريكي = 3.78541 لتر",
+      "1 جالون إمبراطوري (UK) = 4.54609 لتر",
+      "1 كوب = 236.588 مل"
+    ],
+    "common": [
+      "الجالون الأمريكي ≠ الإمبراطوري: فرق 20%",
+      "1 جالون UK = 1.20095 جالون US",
+      "1 لتر = 0.264172 جالون US",
+      "1 كوب = 8 أونصة سائلة"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and customary volume units",
+      "region": "international / US / UK",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "NIST SP 811 and exact US/UK customary definitions."
+    },
+    "unit_provenance": {
+      "m3": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "متر مكعب (m³); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "L": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "لتر (L); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mL": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "مليلتر (mL); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "gal": {
+        "system": "US customary volume",
+        "region": "United States",
+        "definition": "US liquid gallon: exactly 3.785411784 litres.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "galUK": {
+        "system": "Imperial volume",
+        "region": "United Kingdom",
+        "definition": "Imperial gallon: exactly 4.54609 litres.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "qt": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "كوارت أمريكي (qt); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "pt": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "باينت أمريكي (pt); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "cup": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "كوب (240 مل); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "floz": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "أونصة سائلة أمريكية (fl oz); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "tbsp": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "ملعقة كبيرة (15 مل); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "tsp": {
+        "system": "SI-derived and customary volume units",
+        "region": "international / US / UK",
+        "definition": "ملعقة صغيرة (5 مل); factor is maintained in the canonical base table for volume.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "temperature": {
+    "icon": "temperature",
+    "label": "الحرارة",
+    "title": "محول درجة الحرارة",
+    "temp": true,
+    "units": [
+      [
+        "C",
+        "سيلسيوس (°C)"
+      ],
+      [
+        "F",
+        "فهرنهايت (°F)"
+      ],
+      [
+        "K",
+        "كلفن (K)"
+      ]
+    ],
+    "formulas": [
+      "°F = (°C × 9/5) + 32",
+      "°C = (°F − 32) × 5/9",
+      "K = °C + 273.15"
+    ],
+    "common": [
+      "تجمّد الماء: 0°C = 32°F = 273.15K",
+      "غليان الماء: 100°C = 212°F = 373.15K"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "temperature scales",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "Exact Celsius, Fahrenheit, and Kelvin scale relations."
+    },
+    "unit_provenance": {
+      "C": {
+        "system": "temperature scales",
+        "region": "international",
+        "definition": "سيلسيوس (°C); factor is maintained in the canonical base table for temperature.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "F": {
+        "system": "temperature scales",
+        "region": "international",
+        "definition": "فهرنهايت (°F); factor is maintained in the canonical base table for temperature.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "K": {
+        "system": "temperature scales",
+        "region": "international",
+        "definition": "كلفن (K); factor is maintained in the canonical base table for temperature.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "data": {
+    "icon": "data",
+    "label": "البيانات",
+    "title": "محول وحدات البيانات الرقمية",
+    "units": [
+      [
+        "bit",
+        "بت (bit)"
+      ],
+      [
+        "B",
+        "بايت (B)"
+      ],
+      [
+        "KB",
+        "كيلوبايت (KB)"
+      ],
+      [
+        "MB",
+        "ميغابايت (MB)"
+      ],
+      [
+        "GB",
+        "غيغابايت (GB)"
+      ],
+      [
+        "TB",
+        "تيرابايت (TB)"
+      ],
+      [
+        "KiB",
+        "كيبي بايت (KiB)"
+      ],
+      [
+        "MiB",
+        "ميبي بايت (MiB)"
+      ],
+      [
+        "GiB",
+        "غيبي بايت (GiB)"
+      ]
+    ],
+    "base": {
+      "bit": 0.125,
+      "B": 1,
+      "KB": 1000,
+      "MB": 1000000,
+      "GB": 1000000000,
+      "TB": 1000000000000,
+      "KiB": 1024,
+      "MiB": 1048576,
+      "GiB": 1073741824
+    },
+    "formulas": [
+      "1 بايت = 8 بت",
+      "1 كيلوبايت = 1000 بايت",
+      "1 ميغابايت = 1000 كيلوبايت",
+      "1 كيبي بايت = 1024 بايت"
+    ],
+    "common": [
+      "1 غيغابايت = 1000 ميغابايت",
+      "1 تيرابايت = 1000 غيغابايت",
+      "1 ميبي بايت = 1,048,576 بايت"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "decimal and IEC binary information units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "Decimal factors are powers of 1000; binary factors are powers of 1024."
+    },
+    "unit_provenance": {
+      "bit": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "بت (bit); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "B": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "بايت (B); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "KB": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "كيلوبايت (KB); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "MB": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "ميغابايت (MB); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "GB": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "غيغابايت (GB); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "TB": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "تيرابايت (TB); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "KiB": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "كيبي بايت (KiB); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "MiB": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "ميبي بايت (MiB); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "GiB": {
+        "system": "decimal and IEC binary information units",
+        "region": "international",
+        "definition": "غيبي بايت (GiB); factor is maintained in the canonical base table for data.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "speed": {
+    "icon": "speed",
+    "label": "السرعة",
+    "title": "محول وحدات السرعة",
+    "units": [
+      [
+        "kmh",
+        "كم/ساعة (km/h)"
+      ],
+      [
+        "ms",
+        "متر/ثانية (m/s)"
+      ],
+      [
+        "mph",
+        "ميل/ساعة (mph)"
+      ],
+      [
+        "knot",
+        "عقدة (knot)"
+      ],
+      [
+        "fts",
+        "قدم/ثانية (ft/s)"
+      ]
+    ],
+    "base": {
+      "kmh": 1,
+      "ms": 3.6,
+      "mph": 1.609344,
+      "knot": 1.852,
+      "fts": 1.09728
+    },
+    "formulas": [
+      "1 م/ث = 3.6 كم/س",
+      "1 ميل/س = 1.60934 كم/س",
+      "1 عقدة = 1.852 كم/س"
+    ],
+    "common": [
+      "100 كم/س = 27.78 م/ث",
+      "60 ميل/س = 96.56 كم/س",
+      "1 عقدة = 1.15078 ميل/س"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "derived speed units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "Factors are derived from exact length and time definitions."
+    },
+    "unit_provenance": {
+      "kmh": {
+        "system": "derived speed units",
+        "region": "international",
+        "definition": "كم/ساعة (km/h); factor is maintained in the canonical base table for speed.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "ms": {
+        "system": "derived speed units",
+        "region": "international",
+        "definition": "متر/ثانية (m/s); factor is maintained in the canonical base table for speed.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mph": {
+        "system": "derived speed units",
+        "region": "international",
+        "definition": "ميل/ساعة (mph); factor is maintained in the canonical base table for speed.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "knot": {
+        "system": "derived speed units",
+        "region": "international",
+        "definition": "عقدة (knot); factor is maintained in the canonical base table for speed.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "fts": {
+        "system": "derived speed units",
+        "region": "international",
+        "definition": "قدم/ثانية (ft/s); factor is maintained in the canonical base table for speed.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "time": {
+    "icon": "time",
+    "label": "الوقت",
+    "title": "محول وحدات الوقت",
+    "units": [
+      [
+        "ms",
+        "مليثانية (ms)"
+      ],
+      [
+        "s",
+        "ثانية (s)"
+      ],
+      [
+        "min",
+        "دقيقة (min)"
+      ],
+      [
+        "h",
+        "ساعة (h)"
+      ],
+      [
+        "day",
+        "يوم"
+      ],
+      [
+        "week",
+        "أسبوع"
+      ],
+      [
+        "month",
+        "شهر"
+      ],
+      [
+        "year",
+        "سنة"
+      ]
+    ],
+    "base": {
+      "ms": 0.001,
+      "s": 1,
+      "min": 60,
+      "h": 3600,
+      "day": 86400,
+      "week": 604800,
+      "month": 2629800,
+      "year": 31557600
+    },
+    "formulas": [
+      "1 دقيقة = 60 ثانية",
+      "1 ساعة = 3600 ثانية",
+      "1 يوم = 24 ساعة",
+      "1 سنة ≈ 365.25 يوم"
+    ],
+    "common": [
+      "1 أسبوع = 7 أيام",
+      "1 شهر ≈ 30.44 يوم",
+      "1 سنة = 12 شهر"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and calendar-duration units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "SI seconds for fixed durations; month/year are stated average durations."
+    },
+    "unit_provenance": {
+      "ms": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "مليثانية (ms); factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "s": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "ثانية (s); factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "min": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "دقيقة (min); factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "h": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "ساعة (h); factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "day": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "يوم; factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "week": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "أسبوع; factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "month": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "شهر; factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "year": {
+        "system": "SI-derived and calendar-duration units",
+        "region": "international",
+        "definition": "سنة; factor is maintained in the canonical base table for time.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "pressure": {
+    "icon": "pressure",
+    "label": "الضغط",
+    "title": "محول وحدات الضغط",
+    "units": [
+      [
+        "pa",
+        "باسكال (Pa)"
+      ],
+      [
+        "kpa",
+        "كيلوباسكال (kPa)"
+      ],
+      [
+        "bar",
+        "بار (bar)"
+      ],
+      [
+        "atm",
+        "ضغط جوي (atm)"
+      ],
+      [
+        "psi",
+        "psi"
+      ],
+      [
+        "mmhg",
+        "ملم زئبق (mmHg)"
+      ],
+      [
+        "torr",
+        "تور (Torr)"
+      ]
+    ],
+    "base": {
+      "pa": 1,
+      "kpa": 1000,
+      "bar": 100000,
+      "atm": 101325,
+      "psi": 6894.757293,
+      "mmhg": 133.322368,
+      "torr": 133.322368
+    },
+    "formulas": [
+      "1 بار = 100,000 باسكال",
+      "1 ضغط جوي = 101,325 باسكال",
+      "1 psi ≈ 6894.76 باسكال"
+    ],
+    "common": [
+      "1 atm = 1.01325 بار",
+      "1 بار = 14.5038 psi",
+      "1 atm = 760 ملم زئبق"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and customary pressure units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "NIST SP 811 Appendix B; factors expressed against pascal."
+    },
+    "unit_provenance": {
+      "pa": {
+        "system": "SI-derived and customary pressure units",
+        "region": "international",
+        "definition": "باسكال (Pa); factor is maintained in the canonical base table for pressure.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "kpa": {
+        "system": "SI-derived and customary pressure units",
+        "region": "international",
+        "definition": "كيلوباسكال (kPa); factor is maintained in the canonical base table for pressure.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "bar": {
+        "system": "SI-derived and customary pressure units",
+        "region": "international",
+        "definition": "بار (bar); factor is maintained in the canonical base table for pressure.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "atm": {
+        "system": "SI-derived and customary pressure units",
+        "region": "international",
+        "definition": "ضغط جوي (atm); factor is maintained in the canonical base table for pressure.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "psi": {
+        "system": "SI-derived and customary pressure units",
+        "region": "international",
+        "definition": "psi; factor is maintained in the canonical base table for pressure.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mmhg": {
+        "system": "SI-derived and customary pressure units",
+        "region": "international",
+        "definition": "ملم زئبق (mmHg); factor is maintained in the canonical base table for pressure.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "torr": {
+        "system": "SI-derived and customary pressure units",
+        "region": "international",
+        "definition": "تور (Torr); factor is maintained in the canonical base table for pressure.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "energy": {
+    "icon": "energy",
+    "label": "الطاقة",
+    "title": "محول وحدات الطاقة",
+    "units": [
+      [
+        "j",
+        "جول (J)"
+      ],
+      [
+        "kj",
+        "كيلوجول (kJ)"
+      ],
+      [
+        "cal",
+        "سعرة (cal)"
+      ],
+      [
+        "kcal",
+        "كيلوسعرة (kcal)"
+      ],
+      [
+        "wh",
+        "واط·ساعة (Wh)"
+      ],
+      [
+        "kwh",
+        "كيلوواط·ساعة (kWh)"
+      ],
+      [
+        "btu",
+        "BTU"
+      ],
+      [
+        "ev",
+        "إلكترون فولت (eV)"
+      ]
+    ],
+    "base": {
+      "j": 1,
+      "kj": 1000,
+      "cal": 4.184,
+      "kcal": 4184,
+      "wh": 3600,
+      "kwh": 3600000,
+      "btu": 1055.05585,
+      "ev": 1.602176634e-19
+    },
+    "formulas": [
+      "1 كيلوجول = 1000 جول",
+      "1 كيلوسعرة = 4184 جول",
+      "1 كيلوواط·ساعة = 3,600,000 جول"
+    ],
+    "common": [
+      "1 kWh = 860.42 كيلوسعرة",
+      "1 BTU = 1055.06 جول",
+      "1 سعرة = 4.184 جول"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and customary energy units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "NIST SP 811 Appendix B; factors expressed against joule."
+    },
+    "unit_provenance": {
+      "j": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "جول (J); factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "kj": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "كيلوجول (kJ); factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "cal": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "سعرة (cal); factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "kcal": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "كيلوسعرة (kcal); factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "wh": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "واط·ساعة (Wh); factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "kwh": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "كيلوواط·ساعة (kWh); factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "btu": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "BTU; factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "ev": {
+        "system": "SI-derived and customary energy units",
+        "region": "international",
+        "definition": "إلكترون فولت (eV); factor is maintained in the canonical base table for energy.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "power": {
+    "icon": "power",
+    "label": "القدرة",
+    "title": "محول وحدات القدرة",
+    "units": [
+      [
+        "w",
+        "واط (W)"
+      ],
+      [
+        "kw",
+        "كيلوواط (kW)"
+      ],
+      [
+        "mw",
+        "ميغاواط (MW)"
+      ],
+      [
+        "hp",
+        "حصان (hp)"
+      ],
+      [
+        "btuh",
+        "BTU/ساعة"
+      ]
+    ],
+    "base": {
+      "w": 1,
+      "kw": 1000,
+      "mw": 1000000,
+      "hp": 745.699872,
+      "btuh": 0.293071
+    },
+    "formulas": [
+      "1 كيلوواط = 1000 واط",
+      "1 حصان ≈ 745.7 واط",
+      "1 ميغاواط = 1,000,000 واط"
+    ],
+    "common": [
+      "1 hp = 0.7457 كيلوواط",
+      "1 كيلوواط = 1.34102 حصان"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and customary power units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "NIST SP 811 Appendix B; factors expressed against watt."
+    },
+    "unit_provenance": {
+      "w": {
+        "system": "SI-derived and customary power units",
+        "region": "international",
+        "definition": "واط (W); factor is maintained in the canonical base table for power.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "kw": {
+        "system": "SI-derived and customary power units",
+        "region": "international",
+        "definition": "كيلوواط (kW); factor is maintained in the canonical base table for power.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mw": {
+        "system": "SI-derived and customary power units",
+        "region": "international",
+        "definition": "ميغاواط (MW); factor is maintained in the canonical base table for power.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "hp": {
+        "system": "SI-derived and customary power units",
+        "region": "international",
+        "definition": "حصان (hp); factor is maintained in the canonical base table for power.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "btuh": {
+        "system": "SI-derived and customary power units",
+        "region": "international",
+        "definition": "BTU/ساعة; factor is maintained in the canonical base table for power.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "angle": {
+    "icon": "angle",
+    "label": "الزوايا",
+    "title": "محول وحدات الزوايا",
+    "units": [
+      [
+        "deg",
+        "درجة (°)"
+      ],
+      [
+        "rad",
+        "راديان (rad)"
+      ],
+      [
+        "grad",
+        "غراد (grad)"
+      ],
+      [
+        "arcmin",
+        "دقيقة قوسية"
+      ],
+      [
+        "arcsec",
+        "ثانية قوسية"
+      ],
+      [
+        "turn",
+        "دورة"
+      ]
+    ],
+    "base": {
+      "deg": 1,
+      "rad": 57.29577951,
+      "grad": 0.9,
+      "arcmin": 0.016666667,
+      "arcsec": 0.000277778,
+      "turn": 360
+    },
+    "formulas": [
+      "180 درجة = π راديان",
+      "1 دورة = 360 درجة",
+      "1 درجة = 60 دقيقة قوسية"
+    ],
+    "common": [
+      "1 راديان ≈ 57.2958 درجة",
+      "90 درجة = 100 غراد",
+      "1 دورة = 2π راديان"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived and plane-angle units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "Exact degree/radian relationships and named angular subdivisions."
+    },
+    "unit_provenance": {
+      "deg": {
+        "system": "SI-derived and plane-angle units",
+        "region": "international",
+        "definition": "درجة (°); factor is maintained in the canonical base table for angle.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "rad": {
+        "system": "SI-derived and plane-angle units",
+        "region": "international",
+        "definition": "راديان (rad); factor is maintained in the canonical base table for angle.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "grad": {
+        "system": "SI-derived and plane-angle units",
+        "region": "international",
+        "definition": "غراد (grad); factor is maintained in the canonical base table for angle.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "arcmin": {
+        "system": "SI-derived and plane-angle units",
+        "region": "international",
+        "definition": "دقيقة قوسية; factor is maintained in the canonical base table for angle.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "arcsec": {
+        "system": "SI-derived and plane-angle units",
+        "region": "international",
+        "definition": "ثانية قوسية; factor is maintained in the canonical base table for angle.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "turn": {
+        "system": "SI-derived and plane-angle units",
+        "region": "international",
+        "definition": "دورة; factor is maintained in the canonical base table for angle.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "fuel": {
+    "icon": "fuel",
+    "label": "الوقود",
+    "title": "محول استهلاك الوقود",
+    "units": [
+      [
+        "kml",
+        "كم/لتر (km/L)"
+      ],
+      [
+        "l100",
+        "لتر/100كم (L/100km)"
+      ],
+      [
+        "mpg",
+        "ميل/جالون أمريكي (US mpg)"
+      ],
+      [
+        "mpgUK",
+        "ميل/جالون إمبراطوري (UK mpg)"
+      ]
+    ],
+    "special": "fuel",
+    "formulas": [
+      "km/L → L/100km: 100 ÷ (km/L)",
+      "US mpg → km/L: mpg × 0.425144",
+      "UK mpg → km/L: mpg × 0.354006",
+      "L/100km → km/L: 100 ÷ (L/100km)"
+    ],
+    "common": [
+      "10 كم/لتر = 10 لتر/100كم",
+      "30 US mpg ≈ 12.75 كم/لتر",
+      "30 UK mpg ≈ 10.62 كم/لتر",
+      "5 لتر/100كم = 20 كم/لتر"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "fuel economy units",
+      "region": "international / US / UK",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "Derived from exact kilometre, mile, litre, US gallon, and UK gallon definitions."
+    },
+    "unit_provenance": {
+      "kml": {
+        "system": "fuel economy units",
+        "region": "international / US / UK",
+        "definition": "كم/لتر (km/L); factor is maintained in the canonical base table for fuel.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "l100": {
+        "system": "fuel economy units",
+        "region": "international / US / UK",
+        "definition": "لتر/100كم (L/100km); factor is maintained in the canonical base table for fuel.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mpg": {
+        "system": "US customary fuel economy",
+        "region": "United States",
+        "definition": "Miles per US liquid gallon; converted through exact mile and gallon definitions.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mpgUK": {
+        "system": "Imperial fuel economy",
+        "region": "United Kingdom",
+        "definition": "Miles per Imperial gallon; converted through exact mile and gallon definitions.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  },
+  "frequency": {
+    "icon": "frequency",
+    "label": "التردد",
+    "title": "محول وحدات التردد",
+    "units": [
+      [
+        "hz",
+        "هيرتز (Hz)"
+      ],
+      [
+        "khz",
+        "كيلوهيرتز (kHz)"
+      ],
+      [
+        "mhz",
+        "ميغاهيرتز (MHz)"
+      ],
+      [
+        "ghz",
+        "غيغاهيرتز (GHz)"
+      ],
+      [
+        "rpm",
+        "دورة/دقيقة (rpm)"
+      ]
+    ],
+    "base": {
+      "hz": 1,
+      "khz": 1000,
+      "mhz": 1000000,
+      "ghz": 1000000000,
+      "rpm": 0.016666667
+    },
+    "formulas": [
+      "1 كيلوهيرتز = 1000 هيرتز",
+      "1 ميغاهيرتز = 1000 كيلوهيرتز",
+      "1 هيرتز = 60 دورة/دقيقة"
+    ],
+    "common": [
+      "1 GHz = 1000 MHz",
+      "60 rpm = 1 هيرتز"
+    ],
+    "provenance": {
+      "schema_version": "1.0",
+      "system": "SI-derived frequency units",
+      "region": "international",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+      "reviewed": "2026-08-15",
+      "notes": "Factors expressed against hertz; rpm is cycles per minute."
+    },
+    "unit_provenance": {
+      "hz": {
+        "system": "SI-derived frequency units",
+        "region": "international",
+        "definition": "هيرتز (Hz); factor is maintained in the canonical base table for frequency.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "khz": {
+        "system": "SI-derived frequency units",
+        "region": "international",
+        "definition": "كيلوهيرتز (kHz); factor is maintained in the canonical base table for frequency.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "mhz": {
+        "system": "SI-derived frequency units",
+        "region": "international",
+        "definition": "ميغاهيرتز (MHz); factor is maintained in the canonical base table for frequency.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "ghz": {
+        "system": "SI-derived frequency units",
+        "region": "international",
+        "definition": "غيغاهيرتز (GHz); factor is maintained in the canonical base table for frequency.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      },
+      "rpm": {
+        "system": "SI-derived frequency units",
+        "region": "international",
+        "definition": "دورة/دقيقة (rpm); factor is maintained in the canonical base table for frequency.",
+        "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "reviewed": "2026-08-15"
+      }
+    }
+  }
+}

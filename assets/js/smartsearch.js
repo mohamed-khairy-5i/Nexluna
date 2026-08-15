@@ -13,13 +13,14 @@
   var U = {
     // length
     'كم': ['length', 'km'], 'كيلومتر': ['length', 'km'], 'كيلو متر': ['length', 'km'], 'km': ['length', 'km'], 'kilometer': ['length', 'km'], 'kilometre': ['length', 'km'],
-    'متر': ['length', 'm'], 'متر واحد': ['length', 'm'], 'm': ['length', 'm'], 'meter': ['length', 'm'], 'metre': ['length', 'm'],
+    'متر': ['length', 'm'], 'm': ['length', 'm'], 'meter': ['length', 'm'], 'metre': ['length', 'm'],
     'سم': ['length', 'cm'], 'سنتيمتر': ['length', 'cm'], 'سنتي متر': ['length', 'cm'], 'cm': ['length', 'cm'], 'centimeter': ['length', 'cm'],
     'مم': ['length', 'mm'], 'مليمتر': ['length', 'mm'], 'ملم': ['length', 'mm'], 'mm': ['length', 'mm'], 'millimeter': ['length', 'mm'],
     'ميل': ['length', 'mi'], 'اميال': ['length', 'mi'], 'أميال': ['length', 'mi'], 'mi': ['length', 'mi'], 'mile': ['length', 'mi'], 'miles': ['length', 'mi'],
     'ياردة': ['length', 'yd'], 'يارده': ['length', 'yd'], 'yd': ['length', 'yd'], 'yard': ['length', 'yd'],
     'قدم': ['length', 'ft'], 'اقدام': ['length', 'ft'], 'أقدام': ['length', 'ft'], 'ft': ['length', 'ft'], 'foot': ['length', 'ft'], 'feet': ['length', 'ft'],
     'انش': ['length', 'in'], 'إنش': ['length', 'in'], 'بوصة': ['length', 'in'], 'in': ['length', 'in'], 'inch': ['length', 'in'], 'inches': ['length', 'in'],
+    'ميل بحري': ['length', 'nmi'], 'ميل/بحري': ['length', 'nmi'], 'nmi': ['length', 'nmi'], 'nautical mile': ['length', 'nmi'],
     // weight
     'طن': ['weight', 't'], 'ton': ['weight', 't'], 'tonne': ['weight', 't'],
     'كجم': ['weight', 'kg'], 'كغ': ['weight', 'kg'], 'كيلوغرام': ['weight', 'kg'], 'كيلوجرام': ['weight', 'kg'], 'كيلو': ['weight', 'kg'], 'kg': ['weight', 'kg'], 'kilogram': ['weight', 'kg'], 'kilo': ['weight', 'kg'],
@@ -27,52 +28,92 @@
     'مليغرام': ['weight', 'mg'], 'مليجرام': ['weight', 'mg'], 'mg': ['weight', 'mg'], 'milligram': ['weight', 'mg'],
     'رطل': ['weight', 'lb'], 'باوند': ['weight', 'lb'], 'lb': ['weight', 'lb'], 'lbs': ['weight', 'lb'], 'pound': ['weight', 'lb'], 'pounds': ['weight', 'lb'],
     'اونصة': ['weight', 'oz'], 'أونصة': ['weight', 'oz'], 'اوقية': ['weight', 'oz'], 'oz': ['weight', 'oz'], 'ounce': ['weight', 'oz'],
+    'ستون': ['weight', 'st'], 'stone': ['weight', 'st'], 'st': ['weight', 'st'], 'قيراط ذهب': ['weight', 'ct'], 'carat': ['weight', 'ct'], 'ct': ['weight', 'ct'],
     // temperature
     'مئوية': ['temperature', 'C'], 'سيلسيوس': ['temperature', 'C'], 'سلسيوس': ['temperature', 'C'], 'درجة مئوية': ['temperature', 'C'], 'celsius': ['temperature', 'C'], 'c': ['temperature', 'C'],
     'فهرنهايت': ['temperature', 'F'], 'فهرنهيت': ['temperature', 'F'], 'fahrenheit': ['temperature', 'F'], 'f': ['temperature', 'F'],
     'كلفن': ['temperature', 'K'], 'كلفين': ['temperature', 'K'], 'kelvin': ['temperature', 'K'], 'k': ['temperature', 'K'],
     // data
+    'بت': ['data', 'bit'], 'bit': ['data', 'bit'], 'bits': ['data', 'bit'],
     'بايت': ['data', 'B'], 'byte': ['data', 'B'], 'bytes': ['data', 'B'], 'b': ['data', 'B'],
     'كيلوبايت': ['data', 'KB'], 'kb': ['data', 'KB'], 'kilobyte': ['data', 'KB'],
     'ميغابايت': ['data', 'MB'], 'ميجابايت': ['data', 'MB'], 'mb': ['data', 'MB'], 'megabyte': ['data', 'MB'],
     'غيغابايت': ['data', 'GB'], 'جيجابايت': ['data', 'GB'], 'جيغابايت': ['data', 'GB'], 'gb': ['data', 'GB'], 'gigabyte': ['data', 'GB'],
     'تيرابايت': ['data', 'TB'], 'tb': ['data', 'TB'], 'terabyte': ['data', 'TB'],
-    'بت': ['data', 'bit'], 'bit': ['data', 'bit'], 'bits': ['data', 'bit'],
+    'كيبي بايت': ['data', 'KiB'], 'kib': ['data', 'KiB'], 'kibibyte': ['data', 'KiB'],
+    'ميبي بايت': ['data', 'MiB'], 'mib': ['data', 'MiB'], 'mebibyte': ['data', 'MiB'],
+    'غيبي بايت': ['data', 'GiB'], 'gib': ['data', 'GiB'], 'gibibyte': ['data', 'GiB'],
     // speed
-    'كم/ساعة': ['speed', 'kmh'], 'كم بالساعة': ['speed', 'kmh'], 'kmh': ['speed', 'kmh'], 'kph': ['speed', 'kmh'],
-    'ميل/ساعة': ['speed', 'mph'], 'mph': ['speed', 'mph'],
+    'كم/ساعة': ['speed', 'kmh'], 'كم/س': ['speed', 'kmh'], 'كم بالساعة': ['speed', 'kmh'], 'km/h': ['speed', 'kmh'], 'kmh': ['speed', 'kmh'], 'kph': ['speed', 'kmh'],
+    'ميل/ساعة': ['speed', 'mph'], 'ميل بالساعة': ['speed', 'mph'], 'mph': ['speed', 'mph'],
+    'متر/ثانية': ['speed', 'ms'], 'م/ث': ['speed', 'ms'], 'm/s': ['speed', 'ms'], 'metre per second': ['speed', 'ms'],
+    'قدم/ثانية': ['speed', 'fts'], 'قدم/ث': ['speed', 'fts'], 'ft/s': ['speed', 'fts'],
     'عقدة': ['speed', 'knot'], 'knot': ['speed', 'knot'], 'knots': ['speed', 'knot'],
     // volume
+    'متر مكعب': ['volume', 'm3'], 'م3': ['volume', 'm3'], 'm3': ['volume', 'm3'], 'cubic meter': ['volume', 'm3'],
     'لتر': ['volume', 'L'], 'liter': ['volume', 'L'], 'litre': ['volume', 'L'], 'l': ['volume', 'L'],
     'مليلتر': ['volume', 'mL'], 'مل': ['volume', 'mL'], 'ml': ['volume', 'mL'], 'milliliter': ['volume', 'mL'],
-    'جالون': ['volume', 'gal'], 'غالون': ['volume', 'gal'], 'gal': ['volume', 'gal'], 'gallon': ['volume', 'gal'],
-    'كوب': ['volume', 'cup'], 'cup': ['volume', 'cup'],
+    'جالون': ['volume', 'gal'], 'غالون': ['volume', 'gal'], 'gal': ['volume', 'gal'], 'gallon': ['volume', 'gal'], 'جالون امريكي': ['volume', 'gal'], 'us gal': ['volume', 'gal'],
+    'جالون امبراطوري': ['volume', 'galUK'], 'جالون بريطاني': ['volume', 'galUK'], 'uk gal': ['volume', 'galUK'], 'galuk': ['volume', 'galUK'],
+    'كوارت': ['volume', 'qt'], 'qt': ['volume', 'qt'], 'quart': ['volume', 'qt'], 'باينت': ['volume', 'pt'], 'pt': ['volume', 'pt'], 'pint': ['volume', 'pt'],
+    'كوب': ['volume', 'cup'], 'cup': ['volume', 'cup'], 'اونصة سائلة': ['volume', 'floz'], 'fl oz': ['volume', 'floz'], 'floz': ['volume', 'floz'],
+    'ملعقة كبيرة': ['volume', 'tbsp'], 'tbsp': ['volume', 'tbsp'], 'ملعقة صغيرة': ['volume', 'tsp'], 'tsp': ['volume', 'tsp'],
     // time
+    'ملي ثانية': ['time', 'ms'], 'مللي ثانية': ['time', 'ms'], 'millisecond': ['time', 'ms'], 'milliseconds': ['time', 'ms'], 'ms': ['time', 'ms'],
     'ثانية': ['time', 's'], 'ثواني': ['time', 's'], 'second': ['time', 's'], 'seconds': ['time', 's'], 'sec': ['time', 's'],
     'دقيقة': ['time', 'min'], 'دقائق': ['time', 'min'], 'minute': ['time', 'min'], 'min': ['time', 'min'],
     'ساعة': ['time', 'h'], 'ساعات': ['time', 'h'], 'hour': ['time', 'h'], 'hours': ['time', 'h'], 'hr': ['time', 'h'],
     'يوم': ['time', 'day'], 'ايام': ['time', 'day'], 'أيام': ['time', 'day'], 'day': ['time', 'day'], 'days': ['time', 'day'],
-    'اسبوع': ['time', 'week'], 'أسبوع': ['time', 'week'], 'week': ['time', 'week'],
+    'اسبوع': ['time', 'week'], 'أسبوع': ['time', 'week'], 'week': ['time', 'week'], 'شهر': ['time', 'month'], 'month': ['time', 'month'], 'سنة': ['time', 'year'], 'عام': ['time', 'year'], 'year': ['time', 'year'],
     // area
-    'م2': ['area', 'm2'], 'متر مربع': ['area', 'm2'], 'm2': ['area', 'm2'],
-    'كم2': ['area', 'km2'], 'كيلومتر مربع': ['area', 'km2'], 'km2': ['area', 'km2'],
+    'م2': ['area', 'm2'], 'متر مربع': ['area', 'm2'], 'm2': ['area', 'm2'], 'square meter': ['area', 'm2'],
+    'سم2': ['area', 'cm2'], 'سم مربع': ['area', 'cm2'], 'cm2': ['area', 'cm2'], 'square centimeter': ['area', 'cm2'],
+    'كم2': ['area', 'km2'], 'كيلومتر مربع': ['area', 'km2'], 'km2': ['area', 'km2'], 'square kilometer': ['area', 'km2'],
     'هكتار': ['area', 'ha'], 'hectare': ['area', 'ha'], 'ha': ['area', 'ha'],
-    /* Arabic land units are NOT the acre — kept distinct on purpose (this is the
-       exact confusion generic models make). فدّان=4200.833 m², acre=4046.856 m². */
+    /* Arabic land units are NOT the acre — kept distinct on purpose (this exact confusion generic models make). */
     'فدان': ['area', 'feddan'], 'فدّان': ['area', 'feddan'], 'الفدان': ['area', 'feddan'], 'feddan': ['area', 'feddan'], 'faddan': ['area', 'feddan'],
     'قيراط': ['area', 'kirat'], 'قيراط ارض': ['area', 'kirat'], 'kirat': ['area', 'kirat'], 'qirat': ['area', 'kirat'],
     'سهم': ['area', 'sahm'], 'sahm': ['area', 'sahm'],
     'دونم': ['area', 'dunam'], 'دنم': ['area', 'dunam'], 'dunam': ['area', 'dunam'], 'donum': ['area', 'dunam'],
-    'اكر': ['area', 'acre'], 'أكر': ['area', 'acre'], 'acre': ['area', 'acre']
+    'اكر': ['area', 'acre'], 'أكر': ['area', 'acre'], 'acre': ['area', 'acre'], 'قدم2': ['area', 'ft2'], 'ft2': ['area', 'ft2'], 'square foot': ['area', 'ft2'], 'انش2': ['area', 'in2'], 'in2': ['area', 'in2'], 'square inch': ['area', 'in2'], 'ميل2': ['area', 'mi2'], 'mi2': ['area', 'mi2'], 'square mile': ['area', 'mi2'],
+    // pressure
+    'باسكال': ['pressure', 'pa'], 'pa': ['pressure', 'pa'], 'pascal': ['pressure', 'pa'], 'كيلوباسكال': ['pressure', 'kpa'], 'kpa': ['pressure', 'kpa'], 'kilopascal': ['pressure', 'kpa'],
+    'بار': ['pressure', 'bar'], 'bar': ['pressure', 'bar'], 'ضغط جوي': ['pressure', 'atm'], 'atm': ['pressure', 'atm'], 'atmosphere': ['pressure', 'atm'],
+    'رطل/بوصة': ['pressure', 'psi'], 'psi': ['pressure', 'psi'], 'ملم زئبق': ['pressure', 'mmhg'], 'mmhg': ['pressure', 'mmhg'], 'تور': ['pressure', 'torr'], 'torr': ['pressure', 'torr'],
+    // energy
+    'جول': ['energy', 'j'], 'j': ['energy', 'j'], 'joule': ['energy', 'j'], 'كيلوجول': ['energy', 'kj'], 'kj': ['energy', 'kj'], 'kilojoule': ['energy', 'kj'],
+    'سعرة': ['energy', 'cal'], 'كالوري': ['energy', 'cal'], 'cal': ['energy', 'cal'], 'calorie': ['energy', 'cal'], 'كيلوسعرة': ['energy', 'kcal'], 'kcal': ['energy', 'kcal'],
+    'واط/ساعة': ['energy', 'wh'], 'wh': ['energy', 'wh'], 'watt hour': ['energy', 'wh'], 'كيلوواط/ساعة': ['energy', 'kwh'], 'kwh': ['energy', 'kwh'], 'kilowatt hour': ['energy', 'kwh'],
+    'btu': ['energy', 'btu'], 'إلكترون فولت': ['energy', 'ev'], 'الكترون فولت': ['energy', 'ev'], 'ev': ['energy', 'ev'], 'electron volt': ['energy', 'ev'],
+    // power
+    'واط': ['power', 'w'], 'w': ['power', 'w'], 'watt': ['power', 'w'], 'كيلوواط': ['power', 'kw'], 'kw': ['power', 'kw'], 'kilowatt': ['power', 'kw'], 'ميغاواط': ['power', 'mw'], 'mw': ['power', 'mw'], 'megawatt': ['power', 'mw'],
+    'حصان': ['power', 'hp'], 'hp': ['power', 'hp'], 'horsepower': ['power', 'hp'], 'btu/ساعة': ['power', 'btuh'], 'btuh': ['power', 'btuh'], 'btu per hour': ['power', 'btuh'],
+    // angle
+    'درجة': ['angle', 'deg'], 'deg': ['angle', 'deg'], 'degree': ['angle', 'deg'], 'degrees': ['angle', 'deg'], 'راديان': ['angle', 'rad'], 'rad': ['angle', 'rad'], 'radian': ['angle', 'rad'],
+    'غراد': ['angle', 'grad'], 'grad': ['angle', 'grad'], 'دقيقة قوسية': ['angle', 'arcmin'], 'arcmin': ['angle', 'arcmin'], 'ثانية قوسية': ['angle', 'arcsec'], 'arcsec': ['angle', 'arcsec'], 'دورة': ['angle', 'turn'], 'turn': ['angle', 'turn'],
+    // fuel
+    'كم/لتر': ['fuel', 'kml'], 'كم لكل لتر': ['fuel', 'kml'], 'km/l': ['fuel', 'kml'], 'kml': ['fuel', 'kml'], 'كيلومتر لكل لتر': ['fuel', 'kml'],
+    'لتر/100كم': ['fuel', 'l100'], 'لتر/100 كم': ['fuel', 'l100'], 'l/100km': ['fuel', 'l100'], 'l100': ['fuel', 'l100'], 'liter per 100km': ['fuel', 'l100'],
+    'ميل/جالون': ['fuel', 'mpg'], 'ميل لكل جالون': ['fuel', 'mpg'], 'mpg': ['fuel', 'mpg'], 'us mpg': ['fuel', 'mpg'], 'ميل/جالون امريكي': ['fuel', 'mpg'],
+    'ميل/جالون امبراطوري': ['fuel', 'mpgUK'], 'ميل لكل جالون امبراطوري': ['fuel', 'mpgUK'], 'mpguk': ['fuel', 'mpgUK'], 'uk mpg': ['fuel', 'mpgUK'],
+    // frequency
+    'هرتز': ['frequency', 'hz'], 'هيرتز': ['frequency', 'hz'], 'hz': ['frequency', 'hz'], 'hertz': ['frequency', 'hz'], 'كيلوهرتز': ['frequency', 'khz'], 'khz': ['frequency', 'khz'], 'kilohertz': ['frequency', 'khz'],
+    'ميغاهرتز': ['frequency', 'mhz'], 'mhz': ['frequency', 'mhz'], 'megahertz': ['frequency', 'mhz'], 'غيغاهرتز': ['frequency', 'ghz'], 'ghz': ['frequency', 'ghz'], 'gigahertz': ['frequency', 'ghz'], 'دورة/دقيقة': ['frequency', 'rpm'], 'rpm': ['frequency', 'rpm']
   };
 
   var CAT_LABEL = {
     length: 'الطول', weight: 'الوزن', temperature: 'الحرارة', data: 'البيانات',
-    speed: 'السرعة', volume: 'الحجم', time: 'الوقت', area: 'المساحة'
+    speed: 'السرعة', volume: 'الحجم', time: 'الوقت', area: 'المساحة',
+    pressure: 'الضغط', energy: 'الطاقة', power: 'القدرة', angle: 'الزوايا',
+    fuel: 'استهلاك الوقود', frequency: 'التردد'
   };
+  var LOCALE = window.NexlunaLocale || {};
+  var SUI = LOCALE.ui || {};
+  function stx(key, fallback) { return SUI[key] || fallback; }
+  function scat(cat) { return LOCALE.categories && LOCALE.categories[cat] ? LOCALE.categories[cat].label : (CAT_LABEL[cat] || cat); }
 
   /* Question words / connectors that are never units (esp. "كم" = "how much"). */
-  var STOP = { 'في': 1, 'الى': 1, 'إلى': 1, 'من': 1, 'to': 1, 'in': 1, 'into': 1, 'is': 1, 'how': 1, 'many': 1, 'much': 1, 'convert': 1, 'كام': 1, 'يساوي': 1, 'تساوي': 1, 'بكم': 1, 'وكم': 1 };
+  var STOP = { 'في': 1, 'الى': 1, 'إلى': 1, 'من': 1, 'to': 1, 'in': 1, 'into': 1, 'is': 1, 'how': 1, 'many': 1, 'much': 1, 'convert': 1, 'كام': 1, 'يساوي': 1, 'تساوي': 1, 'بكم': 1, 'وكم': 1, 'لكل': 1, 'per': 1, 'على': 1 };
 
   /* Strip Arabic definite-article / preposition prefixes so "بالميل"→"ميل", "المتر"→"متر".
      Only strips when the remainder is a known unit token (avoids mangling real words). */
@@ -96,7 +137,8 @@
       .replace(/[٠۰]/g, '0').replace(/[١۱]/g, '1').replace(/[٢۲]/g, '2').replace(/[٣۳]/g, '3').replace(/[٤۴]/g, '4')
       .replace(/[٥۵]/g, '5').replace(/[٦۶]/g, '6').replace(/[٧۷]/g, '7').replace(/[٨۸]/g, '8').replace(/[٩۹]/g, '9')
       .replace(/[إأآ]/g, 'ا')
-      .replace(/[\/]/g, ' / ')
+      .replace(/[²]/g, '2').replace(/[³]/g, '3').replace(/[°]/g, '')
+      .replace(/\s*\/\s*/g, '/')
       .replace(/\s+/g, ' ').trim();
   }
 
@@ -160,25 +202,27 @@
   }
   function label(cat, key) {
     ensureData();
+    var localized = LOCALE.units && LOCALE.units[cat];
+    if (localized && localized[key]) return localized[key];
     if (!BASE) return key;
     var u = (BASE[cat].units || []).filter(function (x) { return x[0] === key; })[0];
     return u ? u[1] : key;
   }
-  function fmt(n) { if (!isFinite(n)) return '—'; var r = Math.round(n * 1e6) / 1e6; return r.toLocaleString('en-US', { maximumFractionDigits: 6 }); }
+  function fmt(n) { if (!isFinite(n)) return '—'; var r = Math.round(n * 1e6) / 1e6; return r.toLocaleString(LOCALE.locale || 'en-US', { maximumFractionDigits: 6 }); }
 
   /* ---------- UI ---------- */
   function mount(host) {
     var box = document.createElement('div');
     box.className = 'smart-search';
+    var chips = SUI.search_chips || ['5 كم بالميل', '100 كجم رطل', '20 celsius to fahrenheit', '1 gb in mb', '2 bar psi', '1 kwh wh', '30 mpg km/l', 'كم قدم في المتر'];
     box.innerHTML =
       '<label class="ss-label" for="ss-input">' + (window.NexIcons ? window.NexIcons.get('search') : '') +
-      ' اكتب سؤالك بالعربي أو الإنجليزي</label>' +
+      ' ' + stx('search_label', 'اكتب سؤالك بالعربي أو الإنجليزي') + '</label>' +
       '<div class="ss-field"><input id="ss-input" type="text" autocomplete="off" ' +
-      'placeholder="مثال: 5 كم بالميل &nbsp; · &nbsp; كم قدم في المتر &nbsp; · &nbsp; 100 celsius to f" ' +
+      'placeholder="' + stx('search_placeholder', 'مثال: 5 كم بالميل · كم قدم في المتر · 100 celsius to f') + '" ' +
       'aria-describedby="ss-out"></div>' +
       '<div id="ss-out" class="ss-out" role="status" aria-live="polite"></div>' +
-      '<div class="ss-chips">' +
-      ['5 كم بالميل', '100 كجم رطل', '20 celsius to fahrenheit', '1 gb in mb', 'كم قدم في المتر']
+      '<div class="ss-chips">' + chips
         .map(function (q) { return '<button type="button" class="ss-chip">' + q + '</button>'; }).join('') +
       '</div>';
     host.appendChild(box);
@@ -192,20 +236,20 @@
       var r = parse(q);
       if (!r) {
         out.className = 'ss-out ss-hint';
-        out.innerHTML = 'لم أفهم الطلب — جرّب صيغة مثل «5 كم بالميل» أو «100 celsius to f».';
+        out.innerHTML = stx('search_not_understood', 'لم أفهم الطلب — جرّب صيغة مثل «5 كم بالميل» أو «100 celsius to f».');
         return;
       }
       var res = compute(r);
       if (res === null || !isFinite(res)) {
         out.className = 'ss-out ss-hint';
-        out.innerHTML = 'تعذّر الحساب لهذه الوحدات.';
+        out.innerHTML = stx('search_failed', 'تعذّر الحساب لهذه الوحدات.');
         return;
       }
       out.className = 'ss-out ss-answer';
       out.innerHTML =
         '<div class="ss-ans-num" dir="ltr">' + fmt(r.value) + ' ' + label(r.cat, r.from) +
         ' <span class="ss-eq">=</span> <strong>' + fmt(res) + '</strong> ' + label(r.cat, r.to) + '</div>' +
-        '<a class="ss-open" href="/converters/' + r.cat + '.html">افتح محوّل ' + (CAT_LABEL[r.cat] || '') +
+        '<a class="ss-open" href="' + (LOCALE.root || '/') + 'converters/' + r.cat + '.html">' + stx('open_converter', 'افتح محوّل {name}').replace('{name}', scat(r.cat)) +
         ' ' + (window.NexIcons ? window.NexIcons.get('arrow') : '') + '</a>';
     }
 
@@ -217,6 +261,8 @@
       if (c) { input.value = c.textContent; run(c.textContent); input.focus(); }
     });
   }
+
+  window.NexSmartSearch = { parse: parse, normalize: normalize };
 
   document.addEventListener('DOMContentLoaded', function () {
     var host = document.getElementById('smart-search');

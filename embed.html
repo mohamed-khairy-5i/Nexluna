@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors *; form-action 'self'; script-src 'self'; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; worker-src 'self'; manifest-src 'self'">
+  <title>محوّل Nexluna المضمّن</title>
+  <meta name="description" content="محوّل وحدات Nexluna قابل للتضمين، سريع وحتمي ويعمل دون خادم.">
+  <link rel="canonical" href="https://nexluna.netlify.app/embed.html">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    body { min-width: 280px; background: #f7faf9; }
+    .embed-shell button:focus-visible { box-shadow: 0 0 0 3px rgba(15,148,136,.25); outline: none; }
+    .embed-shell button:active { transform: scale(.98); }
+    .embed-shell { max-width: 620px; margin: 0 auto; padding: 1rem; }
+    .embed-card { background: #fff; border: 1px solid #dbe7e3; border-radius: 1rem; padding: 1rem; box-shadow: 0 8px 28px rgba(15, 148, 128, .08); }
+    .embed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .embed-grid .wide { grid-column: 1 / -1; }
+    .embed-card label { display: grid; gap: .35rem; font-weight: 700; }
+    .embed-card select, .embed-card input { width: 100%; min-height: 3rem; border: 1px solid #c9d9d5; border-radius: .65rem; padding: .5rem .65rem; background: #fff; font-size: 1rem; }
+    .embed-card select:focus-visible, .embed-card input:focus-visible { border-color: #0f9488; box-shadow: 0 0 0 3px rgba(15,148,136,.25); outline: none; }
+    .embed-result { margin-top: 1rem; padding: .85rem; border-radius: .75rem; background: #ecfdf5; color: #075e54; font-size: 1.2rem; font-weight: 800; text-align: center; direction: ltr; }
+    .embed-result[data-state="error"] { background: #fff1f2; color: #9f1239; }
+    .embed-note { margin: .75rem 0 0; color: #49635e; font-size: .85rem; }
+    @media (prefers-reduced-motion: reduce) { .embed-shell button { transition: none; } }
+    @media (max-width: 480px) { .embed-grid { grid-template-columns: 1fr; } .embed-grid .wide { grid-column: auto; } }
+  </style>
+</head>
+<body>
+  <main class="embed-shell" id="main">
+    <section class="embed-card" aria-labelledby="embed-title">
+      <h1 id="embed-title">محوّل Nexluna</h1>
+      <p class="embed-note">حساب حتمي سريع — لا تُرسل القيم إلى نموذج أو خادم.</p>
+      <form id="embed-form" class="embed-grid" novalidate>
+        <label class="wide" for="embed-category">الفئة<select id="embed-category" name="category"></select></label>
+        <label for="embed-from">من<select id="embed-from" name="from"></select></label>
+        <label for="embed-to">إلى<select id="embed-to" name="to"></select></label>
+        <label class="wide" for="embed-value">القيمة<input id="embed-value" name="v" inputmode="decimal" type="number" step="any" value="1" required></label>
+        <button class="btn btn-primary wide" type="submit">تحويل</button>
+      </form>
+      <output id="embed-result" class="embed-result" aria-live="polite" aria-atomic="true">—</output>
+      <p class="embed-note"><a href="/" target="_blank" rel="noopener">افتح Nexluna الكامل</a></p>
+    </section>
+  </main>
+  <script src="/assets/js/units.generated.js" defer></script>
+  <script src="/assets/js/webmcp.js" defer></script>
+  <script src="/assets/js/embed.js" defer></script>
+</body>
+</html>

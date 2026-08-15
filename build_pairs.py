@@ -7,44 +7,70 @@ and a deep link into the full category converter (state pre-filled).
 
 Static-first, deterministic math (mirrors converter.js base factors exactly), zero API.
 """
+import json
 import os
-from build_pages import HEADER, FOOTER, ADSENSE, BASE
+from pathlib import Path
+from build_pages import BASE, HEADER, FOOTER, ADSENSE, CSP_META, PAGES, DEV_PERSON_JSONLD
 
+ROOT = Path(__file__).resolve().parent
 OUT_DIR = "convert"
+CANONICAL = json.loads((ROOT / "data" / "units.json").read_text(encoding="utf-8"))
 
-# --- Deterministic factor mirror of converter.js DATA (base-unit multipliers) ---
+# Deterministic factors come from the canonical source. This generator must not
+# carry a second table that can drift from NexConvert.
 FACT = {
-    "length": {"km": 1000, "m": 1, "cm": 0.01, "mm": 0.001, "mi": 1609.344,
-               "yd": 0.9144, "ft": 0.3048, "in": 0.0254, "nmi": 1852},
-    "weight": {"t": 1000, "kg": 1, "g": 0.001, "mg": 0.000001, "lb": 0.45359237,
-               "oz": 0.028349523, "st": 6.35029318, "ct": 0.0002},
-    "data": {"bit": 0.125, "B": 1, "KB": 1000, "MB": 1000000, "GB": 1000000000,
-             "TB": 1000000000000, "KiB": 1024, "MiB": 1048576, "GiB": 1073741824},
-    "speed": {"kmh": 1, "ms": 3.6, "mph": 1.609344, "knot": 1.852, "fts": 1.09728},
-    "volume": {"m3": 1000, "L": 1, "mL": 0.001, "gal": 3.785411784, "qt": 0.946352946,
-               "pt": 0.473176473, "cup": 0.2365882365, "floz": 0.0295735296},
-    "area": {"km2": 1000000, "m2": 1, "cm2": 0.0001, "ha": 10000, "acre": 4046.8564224,
-             "ft2": 0.09290304, "in2": 0.00064516, "mi2": 2589988.11},
-    "time": {"ms": 0.001, "s": 1, "min": 60, "h": 3600, "day": 86400, "week": 604800},
+    category: definition.get("base", {})
+    for category, definition in CANONICAL.items()
+    if definition.get("base")
 }
 
-# Arabic + short labels for units used in pairs
-UL = {
-    "km": ("كيلومتر", "km"), "m": ("متر", "m"), "cm": ("سنتيمتر", "cm"), "mm": ("مليمتر", "mm"),
-    "mi": ("ميل", "mi"), "yd": ("ياردة", "yd"), "ft": ("قدم", "ft"), "in": ("إنش", "in"),
-    "kg": ("كيلوغرام", "kg"), "g": ("غرام", "g"), "lb": ("رطل", "lb"), "oz": ("أونصة", "oz"), "t": ("طن", "t"),
-    "C": ("سيلسيوس", "°C"), "F": ("فهرنهايت", "°F"), "K": ("كلفن", "K"),
-    "KB": ("كيلوبايت", "KB"), "MB": ("ميغابايت", "MB"), "GB": ("غيغابايت", "GB"), "TB": ("تيرابايت", "TB"),
-    "kmh": ("كم/ساعة", "km/h"), "mph": ("ميل/ساعة", "mph"), "ms": ("متر/ثانية", "m/s"),
-    "L": ("لتر", "L"), "mL": ("مليلتر", "mL"), "gal": ("جالون", "gal"), "cup": ("كوب", "cup"),
-}
+# Unit labels are derived from canonical data so every generated page uses the same
+# names and symbols as NexConvert/WebMCP. The old hand-maintained table is gone.
+UNIT_LABELS = {}
+for _category, _definition in CANONICAL.items():
+    UNIT_LABELS[_category] = {}
+    for _code, _label in _definition.get("units", []):
+        _name = _label.rsplit(" (", 1)[0] if " (" in _label else _label
+        UNIT_LABELS[_category][_code] = (_name, _code)
+
+
+def unit_label(category, code):
+    try:
+        return UNIT_LABELS[category][code]
+    except KeyError as exc:
+        raise KeyError(f"Unit {code!r} is missing from canonical category {category!r}") from exc
+
+
+MPG_US = 0.425143707430272
+MPG_UK = 0.3540061899346471
 
 
 def conv(cat, frm, to, v):
     if cat == "temperature":
         return temp(v, frm, to)
+    if cat == "fuel":
+        return fuel(v, frm, to)
     f = FACT[cat]
     return v * f[frm] / f[to]
+
+
+def fuel_to_kml(v, unit):
+    if unit == "kml":
+        return v
+    if unit == "l100":
+        return 100 / v
+    return v * (MPG_UK if unit == "mpgUK" else MPG_US)
+
+
+def fuel(v, frm, to):
+    if frm == to:
+        return v
+    km_l = fuel_to_kml(v, frm)
+    if to == "kml":
+        return km_l
+    if to == "l100":
+        return 100 / km_l
+    return km_l / (MPG_UK if to == "mpgUK" else MPG_US)
 
 
 def temp(v, frm, to):
@@ -59,25 +85,38 @@ def fmt(n):
     return f"{r:,.6f}".rstrip("0").rstrip(".")
 
 
-# --- The high-intent pairs to generate (category, from, to) ---
-# Chosen for real Arabic search demand around unit conversions.
-PAIRS = [
-    ("length", "km", "mi"), ("length", "mi", "km"),
-    ("length", "cm", "in"), ("length", "in", "cm"),
-    ("length", "ft", "m"),  ("length", "m", "ft"),
-    ("length", "km", "m"),  ("length", "m", "km"),
-    ("weight", "kg", "lb"), ("weight", "lb", "kg"),
-    ("weight", "g", "oz"),  ("weight", "oz", "g"),
-    ("weight", "t", "kg"),
-    ("temperature", "C", "F"), ("temperature", "F", "C"),
-    ("temperature", "C", "K"),
-    ("data", "GB", "MB"), ("data", "MB", "KB"), ("data", "TB", "GB"),
-    ("speed", "kmh", "mph"), ("speed", "mph", "kmh"), ("speed", "ms", "kmh"),
-    ("volume", "L", "gal"), ("volume", "gal", "L"), ("volume", "cup", "mL"),
-]
+# --- High-intent pairs generated from a small, curated unit set per category ---
+# Each unordered pair becomes two landing pages (A→B and B→A). This keeps the
+# inventory broad enough for long-tail SEO without generating every low-intent
+# permutation in the canonical source.
+PAIR_UNITS = {
+    "length": ["km", "m", "mi", "ft"],
+    "weight": ["kg", "g", "lb", "oz"],
+    "area": ["m2", "feddan", "acre", "ft2"],
+    "volume": ["L", "mL", "gal", "cup"],
+    "temperature": ["C", "F", "K"],
+    "data": ["KB", "MB", "GB", "TB"],
+    "speed": ["kmh", "mph", "ms", "knot"],
+    "time": ["s", "min", "h", "day"],
+    "pressure": ["pa", "bar", "atm", "psi"],
+    "energy": ["j", "kj", "cal", "kwh"],
+    "power": ["w", "kw", "hp", "btuh"],
+    "angle": ["deg", "rad", "grad", "turn"],
+    "fuel": ["kml", "l100", "mpg", "mpgUK"],
+    "frequency": ["hz", "khz", "mhz", "ghz"],
+}
+PAIRS = []
+for _category, _units in PAIR_UNITS.items():
+    for _i, _from in enumerate(_units):
+        for _to in _units[_i + 1:]:
+            PAIRS.extend([(_category, _from, _to), (_category, _to, _from)])
 
-CAT_AR = {"length": "الطول", "weight": "الوزن", "temperature": "درجة الحرارة",
-          "data": "البيانات", "speed": "السرعة", "volume": "الحجم"}
+CAT_AR = {
+    "length": "الطول", "weight": "الوزن", "area": "المساحة", "volume": "الحجم والسعة",
+    "temperature": "درجة الحرارة", "data": "البيانات", "speed": "السرعة", "time": "الوقت",
+    "pressure": "الضغط", "energy": "الطاقة", "power": "القدرة", "angle": "الزوايا",
+    "fuel": "استهلاك الوقود", "frequency": "التردد",
+}
 
 
 def slug(cat, frm, to):
@@ -92,13 +131,13 @@ def table_rows(cat, frm, to):
         vals = [-40, -10, 0, 10, 20, 25, 30, 37, 50, 100]
     rows = []
     for v in vals:
-        rows.append(f"        <tr><td>{fmt(v)} {UL[frm][1]}</td><td>{fmt(conv(cat, frm, to, v))} {UL[to][1]}</td></tr>")
+        rows.append(f"        <tr><td>{fmt(v)} {unit_label(cat, frm)[1]}</td><td>{fmt(conv(cat, frm, to, v))} {unit_label(cat, to)[1]}</td></tr>")
     return "\n".join(rows)
 
 
 def faq_pair(cat, frm, to):
-    fa, fs = UL[frm]
-    ta, ts = UL[to]
+    fa, fs = unit_label(cat, frm)
+    ta, ts = unit_label(cat, to)
     one = fmt(conv(cat, frm, to, 1))
     items = [
         (f"كم {ta} في {fa} واحد؟", f"{fa} واحد ({fs}) يساوي {one} {ta} ({ts})."),
@@ -126,8 +165,8 @@ def faq_html(items):
 
 
 def page_html(cat, frm, to):
-    fa, fs = UL[frm]
-    ta, ts = UL[to]
+    fa, fs = unit_label(cat, frm)
+    ta, ts = unit_label(cat, to)
     cat_ar = CAT_AR[cat]
     one = fmt(conv(cat, frm, to, 1))
     sl = slug(cat, frm, to)
@@ -149,10 +188,12 @@ def page_html(cat, frm, to):
     head = '<!DOCTYPE html>\n<html lang="ar" dir="rtl">\n<head>\n' \
         '  <meta charset="UTF-8">\n' \
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' \
-        '  <title>' + title + '</title>\n' \
+        + CSP_META + '  <title>' + title + '</title>\n' \
         '  <meta name="description" content="' + desc + '">\n' \
+        '  <meta name="keywords" content="تحويل ' + fa + ' إلى ' + ta + ', كم ' + ta + ' في ' + fa + ', محول ' + cat_ar + ', Nexluna">\n' \
         '  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">\n' \
-        '  <meta name="theme-color" content="#0f9488">\n' \
+        '  <meta name="theme-color" content="#0f9480">\n' \
+        '  <meta name="author" content="Nexluna">\n' \
         '  <link rel="canonical" href="' + url + '">\n' \
         '  <link rel="alternate" hreflang="ar" href="' + url + '">\n' \
         '  <link rel="alternate" hreflang="x-default" href="' + url + '">\n' \
@@ -179,6 +220,31 @@ def page_html(cat, frm, to):
         '{ "@type":"ListItem","position":2,"name":"تحويلات","item":"' + BASE + '/convert/" },' \
         '{ "@type":"ListItem","position":3,"name":"' + title + '","item":"' + url + '" }] }\n  </script>\n'
     faq_ld = '  <script type="application/ld+json">\n  ' + faq_jsonld(faq) + '\n  </script>\n'
+    howto = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "طريقة تحويل %s إلى %s" % (fa, ta),
+        "description": "خطوات تحويل %s إلى %s باستخدام Nexluna." % (fa, ta),
+        "totalTime": "PT1M",
+        "step": [
+            {"@type": "HowToStep", "position": 1, "name": "أدخل القيمة", "text": "أدخل القيمة المراد تحويلها."},
+            {"@type": "HowToStep", "position": 2, "name": "اختر الوحدات", "text": "اختر وحدة %s ووحدة %s." % (fa, ta)},
+            {"@type": "HowToStep", "position": 3, "name": "راجع النتيجة", "text": "يعرض Nexluna النتيجة الدقيقة وجدول القيم الشائعة."},
+        ],
+    }
+    howto_ld = '  <script type="application/ld+json">\n  ' + json.dumps(howto, ensure_ascii=False) + '\n  </script>\n'
+    app_ld = '  <script type="application/ld+json">\n  ' + json.dumps({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": title,
+        "url": url,
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "inLanguage": "ar",
+        "dateModified": "2026-08-15",
+        "author": json.loads(DEV_PERSON_JSONLD),
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    }, ensure_ascii=False) + '\n  </script>\n'
 
     body = '</head>\n<body>\n' \
         '  <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>\n' + HEADER + '\n' \
@@ -213,15 +279,22 @@ def page_html(cat, frm, to):
         '        <div class="faq">\n' + faq_html(faq) + '\n        </div>\n      </section>\n' \
         '    </div>\n  </main>\n' + FOOTER + '\n' \
         '  <script src="/assets/js/icons.js" defer></script>\n' \
+        '  <script src="/assets/js/units.generated.js" defer></script>\n' \
+        '  <script src="/assets/js/explain.js" defer></script>\n' \
         '  <script src="/assets/js/webmcp.js" defer></script>\n' \
         '  <script src="/assets/js/main.js" defer></script>\n' \
         '</body>\n</html>\n'
 
-    return head + bc_ld + faq_ld + ads_loader + '\n' + body
+    return head + bc_ld + app_ld + faq_ld + howto_ld + ads_loader + '\n' + body
 
 
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
+    expected = {slug(cat, frm, to) + ".html" for cat, frm, to in PAIRS}
+    expected.add("index.html")
+    for stale in Path(OUT_DIR).glob("*.html"):
+        if stale.name not in expected:
+            stale.unlink()
     written = []
     for cat, frm, to in PAIRS:
         sl = slug(cat, frm, to)
@@ -238,7 +311,7 @@ def main():
 def write_index(written):
     cards = []
     for cat, frm, to in PAIRS:
-        fa = UL[frm][0]; ta = UL[to][0]; sl = slug(cat, frm, to)
+        fa = unit_label(cat, frm)[0]; ta = unit_label(cat, to)[0]; sl = slug(cat, frm, to)
         cards.append(
             '        <a class="card" href="/convert/' + sl + '.html">\n'
             '          <div class="card-icon"><span data-icon="' + cat + '"></span></div>\n'
@@ -247,10 +320,24 @@ def write_index(written):
             '          <span class="arrow" data-icon="arrow" aria-hidden="true"></span>\n        </a>'
         )
     url = BASE + "/convert/"
+    item_list = []
+    for position, (cat, frm, to) in enumerate(PAIRS, 1):
+        fa = unit_label(cat, frm)[0]; ta = unit_label(cat, to)[0]; sl = slug(cat, frm, to)
+        item_list.append({"@type": "ListItem", "position": position, "name": fa + " إلى " + ta, "url": BASE + "/convert/" + sl + ".html"})
+    index_ld = '  <script type="application/ld+json">\n  ' + json.dumps({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "أشهر تحويلات الوحدات",
+        "numberOfItems": len(item_list),
+        "itemListElement": item_list,
+    }, ensure_ascii=False) + '\n  </script>\n'
     html = '<!DOCTYPE html>\n<html lang="ar" dir="rtl">\n<head>\n' \
         '  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' \
+        + CSP_META + \
         '  <title>تحويلات الوحدات الشائعة — Nexluna</title>\n' \
         '  <meta name="description" content="روابط سريعة لأشهر عمليات تحويل الوحدات: كيلومتر إلى ميل، كجم إلى رطل، سيلسيوس إلى فهرنهايت، وغيرها — بجداول ومحوّل فوري.">\n' \
+        '  <meta name="keywords" content="تحويل وحدات, محول وحدات عربي, جداول التحويل, Nexluna">\n' \
+        '  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">\n' \
         '  <link rel="canonical" href="' + url + '">\n' \
         '  <meta property="og:type" content="website">\n' \
         '  <meta property="og:locale" content="ar_AR">\n' \
@@ -267,13 +354,13 @@ def write_index(written):
         '  <link rel="stylesheet" href="/assets/css/style.css">\n' \
         '  <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg">\n' \
         '  <script>(function(){try{var t=localStorage.getItem("nx-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}document.documentElement.classList.add("js-ready");})();</script>\n' \
-        '</head>\n<body>\n  <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>\n' + HEADER + '\n' \
+        + index_ld + '</head>\n<body>\n  <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>\n' + HEADER + '\n' \
         '  <main id="main">\n    <div class="container section">\n' \
         '      <div class="section-head reveal"><span class="eyebrow"><span data-icon="grid"></span> تحويلات سريعة</span>' \
         '<h1>أشهر تحويلات الوحدات</h1><p class="lead">اختر التحويل الذي تريده مباشرة — كل صفحة فيها جدول قيم شائعة ومحوّل فوري دقيق.</p></div>\n' \
         '      <div class="grid grid-cards reveal">\n' + "\n".join(cards) + '\n      </div>\n' \
         '    </div>\n  </main>\n' + FOOTER + '\n' \
-        '  <script src="/assets/js/icons.js" defer></script>\n  <script src="/assets/js/webmcp.js" defer></script>\n  <script src="/assets/js/main.js" defer></script>\n' \
+        '  <script src="/assets/js/icons.js" defer></script>\n  <script src="/assets/js/units.generated.js" defer></script>\n  <script src="/assets/js/webmcp.js" defer></script>\n  <script src="/assets/js/main.js" defer></script>\n' \
         '</body>\n</html>\n'
     with open(os.path.join(OUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate Nexluna blog index and articles."""
 import os
-from build_pages import HEADER, FOOTER, BASE
+from build_pages import HEADER, FOOTER, BASE, CSP_META
 
 def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="", read="5", meta_title=None):
     doc_title = meta_title or f"{title} | مدونة Nexluna"
@@ -18,7 +18,7 @@ def article_page(slug, title, desc, date, body_html, faq=None, image=None, alt="
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{doc_title}</title>
+{CSP_META}  <title>{doc_title}</title>
   <meta name="description" content="{desc}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="theme-color" content="#4f46e5">
@@ -306,7 +306,62 @@ ARTICLES = [
         <p>جرّبه الآن من <a href="/">الصفحة الرئيسية</a> — فقط اكتب سؤالك واضغط Enter.</p>''',
         "faq": [("هل يفهم البحث العربية والإنجليزية معًا؟", "نعم، يمكنك الخلط بينهما مثل «20 celsius to فهرنهايت»."), ("هل النتائج دقيقة؟", "نعم، تمرّ كل النتائج عبر نفس محرّك الحساب الدقيق في المحوّل، بلا تخمين.")],
     },
+    {
+        "slug": "area-measurement-guide",
+        "title": "دليل قياس المساحات: الفدّان والقيراط والهكتار والأكر",
+        "meta_title": "دليل قياس المساحات: الفدّان والأكر والهكتار",
+        "desc": "افهم الفرق بين الفدّان المصري والأكر الدولي وقارن بين وحدات المساحات الشائعة في المنطقة بخطوات بسيطة.",
+        "date": "2025-08-05",
+        "read": "6",
+        "image": "/assets/img/blog/area.webp",
+        "alt": "خريطة ومساحات أراضي بوحدات مختلفة",
+        "excerpt": "الفرق بين الفدّان المصري والأكر الدولي ولماذا يخلط بينهما كثيرون.",
+        "body": '''        <p>تُعدّ وحدات قياس المساحات من أكثر ما يسبّب ارتباكًا في التعاملات العقارية والأراضي الزراعية، خاصة في مصر والوطن العربي حيث يُستخدم الفدّان والقيراط والسهم والدونم إلى جانب الأكر والهكتار الدوليين.</p>
+        <h2>الفدّان المصري مقابل الأكر الدولي</h2>
+        <p>الفدّان وحدة مصرية تقليدية تساوي 4200.833 مترًا مربعًا تقريبًا، بينما الأكر الدولي (Acre) المستخدم في الولايات المتحدة وبريطانيا يساوي 4046.856 مترًا مربعًا. الفرق بينهما نحو 3.8%، وهو فرق كافٍ للتأثير على حسابات الأسعار والمساحات في العقود.</p>
+        <h2>أهم الوحدات في المنطقة</h2>
+        <table>
+          <thead><tr><th>الوحدة</th><th>القيمة بالمتر المربع</th></tr></thead>
+          <tbody>
+            <tr><td>الفدّان</td><td>4200.833</td></tr>
+            <tr><td>القيراط (المصري)</td><td>175.03</td></tr>
+            <tr><td>السهم</td><td>7.29</td></tr>
+            <tr><td>الدونم</td><td>1000</td></tr>
+            <tr><td>الهكتار</td><td>10,000</td></tr>
+            <tr><td>الأكر</td><td>4046.856</td></tr>
+          </tbody>
+        </table>
+        <p>حوّل بين أي من هذه الوحدات بدقة عبر <a href="/converters/area.html">محول المساحات من Nexluna</a>.</p>''',
+        "faq": [("كم متر مربع في الفدّان؟", "الفدّان الواحد يساوي نحو 4200.833 مترًا مربعًا."), ("ما الفرق بين الفدّان والأكر؟", "الفدّان أكبر من الأكر بنحو 3.8%."), ("كم قيراط في الفدّان؟", "الفدّان الواحد يساوي 24 قيراطًا."), ("ما قيمة السهم؟", "السهم الواحد يساوي نحو 7.29 مترًا مربعًا.")],
+    },
+    {
+        "slug": "fuel-economy-units",
+        "title": "وحدات استهلاك الوقود: كم/لتر وmpg الأمريكية والبريطانية",
+        "meta_title": "وحدات استهلاك الوقود: كم/لتر وmpg وl/100km",
+        "desc": "تعرّف على اتفاقيات قياس كفاءة استهلاك الوقود الثلاث ولماذا يختلف رقم mpg بين أمريكا وبريطانيا.",
+        "date": "2025-09-01",
+        "read": "5",
+        "image": "/assets/img/blog/fuel.webp",
+        "alt": "عداد الوقود ورمز استهلاكه في لوحة سيارة",
+        "excerpt": "لماذا تختلف أرقام استهلاك الوقود بين أمريكا وبريطانيا والوطن العربي؟",
+        "body": '''        <p>تُقاس كفاءة استهلاك الوقود بثلاث اتفاقيات رئيسية حول العالم، وكل منها يعكس طريقة تفكير مختلفة: المسافة لكل لتر في الشرق الأوسط كثيرًا، والمسافة لكل غالون في أمريكا وبريطانيا، وحجم الوقود لكل مسافة (لتر/100 كم) في معظم أوروبا.</p>
+        <h2>الغالون الأمريكي مقابل البريطاني</h2>
+        <p>الغالون الأمريكي يساوي 3.785 لترًا، بينما الغالون البريطاني (الإمبراطوري) يساوي 4.546 لترًا. لذلك فإن رقم «30 mpg» أمريكيًا يعادل نحو 36 mpg بريطانيًا — نفس الاستهلاك الحقيقي برقمين مختلفين.</p>
+        <h2>قواعد التحويل الأساسية</h2>
+        <table>
+          <thead><tr><th>من</th><th>إلى</th><th>القاعدة</th></tr></thead>
+          <tbody>
+            <tr><td>كم/لتر</td><td>mpg أمريكي</td><td>× 2.352</td></tr>
+            <tr><td>لتر/100 كم</td><td>كم/لتر</td><td>100 ÷ القيمة</td></tr>
+            <tr><td>mpg أمريكي</td><td>لتر/100 كم</td><td>235.215 ÷ القيمة</td></tr>
+          </tbody>
+        </table>
+        <p>قارن بين كل هذه الاتفاقيات فورًا عبر <a href="/converters/fuel.html">محول استهلاك الوقود من Nexluna</a>.</p>''',
+        "faq": [("ما الفرق بين mpg الأمريكية والبريطانية؟", "الغالون البريطاني أكبر من الأمريكي بنحو 20%، فالرقم البريطاني أعلى لنفس الاستهلاك."), ("كيف أحوّل كم/لتر إلى mpg؟", "اضرب القيمة في 2.352 للحصول على mpg الأمريكية."), ("ما معنى لتر/100 كم؟", "حجم الوقود المستهلك لقطع 100 كيلومتر؛ الرقم الأقل يعني استهلاكًا أفضل.")],
+    },
 ]
+
+import build_content_system
 
 def write(path, html):
     full = os.path.join(os.path.dirname(__file__), path)
@@ -315,11 +370,29 @@ def write(path, html):
         f.write(html)
     print("wrote", path)
 
+
+def body_suffix(cat):
+    """Related converter + article links from the canonical content registry."""
+    related = build_content_system.converter_links("ar", cat)
+    if not related:
+        return ""
+    items = "".join(f'<li><a href="{href}">{title}</a></li>' for href, title in related)
+    return f'''        <h2>مقالات ودلائل ذات صلة</h2>
+        <ul>{items}</ul>'''
+
 def build():
+    registry_articles = {a["slug"]: a for a in build_content_system.registry()["articles"]}
     for a in ARTICLES:
-        write(f"blog/{a['slug']}.html", article_page(a["slug"], a["title"], a["desc"], a["date"], a["body"],
+        reg = registry_articles.get(a["slug"])
+        body = a["body"]
+        if reg:
+            body = (body.rstrip() + "\n" + body_suffix(reg["category"]).lstrip()).strip()
+        write(f"blog/{a['slug']}.html", article_page(a["slug"], a["title"], a["desc"], a["date"], body,
               a.get("faq"), image=a.get("image"), alt=a.get("alt", ""), read=a.get("read", "5"),
               meta_title=a.get("meta_title")))
+    for slug in registry_articles:
+        if slug not in {a["slug"] for a in ARTICLES}:
+            print("warning: content.json article without body:", slug)
     # blog index — image cards
     cards = "\n".join(
         f'''          <a class="card blog-card" href="/blog/{a['slug']}.html">

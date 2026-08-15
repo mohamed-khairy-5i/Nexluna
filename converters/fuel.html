@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; worker-src 'self'; manifest-src 'self'">
   <title>محول استهلاك الوقود | كم/لتر، لتر/100كم، ميل/جالون — Nexluna</title>
   <meta name="description" content="حوّل معدلات استهلاك الوقود بدقة بين كم/لتر، لتر/100كم، وميل/جالون (mpg). أداة مجانية من Nexluna.">
+  <meta name="keywords" content="محول استهلاك الوقود, تحويل استهلاك الوقود, محول عربي استهلاك الوقود, Nexluna">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="theme-color" content="#4f46e5">
   <meta name="author" content="Nexluna">
   <link rel="canonical" href="https://nexluna.netlify.app/converters/fuel.html">
   <link rel="alternate" hreflang="ar" href="https://nexluna.netlify.app/converters/fuel.html">
   <link rel="alternate" hreflang="x-default" href="https://nexluna.netlify.app/converters/fuel.html">
+  <link rel="alternate" hreflang="en" href="https://nexluna.netlify.app/en/converters/fuel.html">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nexluna">
@@ -59,11 +62,16 @@
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "inLanguage": "ar",
+    "dateModified": "2026-08-15",
+    "author": { "@type": "Person", "name": "Mohamed Khairy", "alternateName": "محمد خيري", "jobTitle": "MERN Stack & AI Engineer", "email": "mailto:mohamedkhairy0887@gmail.com", "url": "https://mokhairy.netlify.app/", "sameAs": ["https://github.com/mohamed-khairy-5i", "https://www.linkedin.com/in/mohamed-khairy-5i/", "https://mokhairy.netlify.app/"] },
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "كيف أحوّل من كم/لتر إلى لتر/100كم؟", "acceptedAnswer": { "@type": "Answer", "text": "اقسم 100 على قيمة كم/لتر." } },{ "@type": "Question", "name": "كم كم/لتر يساوي 30 mpg؟", "acceptedAnswer": { "@type": "Answer", "text": "30 ميل/جالون ≈ 12.75 كيلومتر/لتر." } }] }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "HowTo", "name": "طريقة استخدام محول استهلاك الوقود", "description": "قارن كفاءة استهلاك السيارات بالتحويل بين كم/لتر ولتر/100كم وميل/جالون.", "totalTime": "PT1M", "step": [{"@type": "HowToStep", "position": 1, "name": "أدخل القيمة", "text": "أدخل القيمة المراد تحويلها في الحقل الأول."}, {"@type": "HowToStep", "position": 2, "name": "اختر الوحدات", "text": "اختر وحدة المصدر ووحدة النتيجة من القائمتين."}, {"@type": "HowToStep", "position": 3, "name": "راجع النتيجة", "text": "راجع النتيجة الدقيقة وانسخها أو شارك الرابط."}]}
   </script>
 
   <script>/* Defer AdSense until idle — keeps LCP/TBT low (perf pillar) */
@@ -87,6 +95,7 @@
         <a href="/converters/data.html">البيانات</a>
         <a href="/blog/">المدونة</a>
         <a href="/about.html">عن الموقع</a>
+        <a href="/en/" lang="en">English</a>
       </nav>
       <div class="nav-actions">
         <button class="icon-btn" data-theme-toggle type="button" aria-label="تبديل الوضع الليلي"><span data-icon="moon"></span></button>
@@ -99,11 +108,15 @@
       <nav class="breadcrumb" aria-label="مسار التنقل">
         <a href="/">الرئيسية</a> <span aria-hidden="true">›</span> <a href="/#converters">المحولات</a> <span aria-hidden="true">›</span> <span>استهلاك الوقود</span>
       </nav>
-      <div class="section-head reveal" style="margin-bottom:var(--sp-6)">
-        <span class="eyebrow"><span data-icon="fuel"></span> محوّل استهلاك الوقود</span>
-        <h1>محول وحدات استهلاك الوقود</h1>
-        <p class="lead">قارن كفاءة استهلاك السيارات بالتحويل بين كم/لتر ولتر/100كم وميل/جالون.</p>
-      </div>
+      <section class="category-hero reveal" aria-labelledby="category-title">
+        <div class="category-hero-icon"><span data-icon="fuel"></span></div>
+        <div class="category-hero-copy">
+          <span class="eyebrow"><span data-icon="bolt"></span> محوّل استهلاك الوقود · نتيجة فورية</span>
+          <h1 id="category-title">حوّل وحدات استهلاك الوقود<br><span>بوضوح وثقة.</span></h1>
+          <p>قارن كفاءة استهلاك السيارات بالتحويل بين كم/لتر ولتر/100كم وميل/جالون.</p>
+          <div class="category-hero-pills"><span>حساب حتمي</span><span>نسخ ومشاركة</span><span>يعمل دون إنترنت</span></div>
+        </div>
+      </section>
 
       <div class="converter reveal" id="converter-app" data-only="fuel"><div class="conv-skeleton" aria-hidden="true"><div class="sk sk-tabs"></div><div class="sk-row"><div class="sk sk-field"></div><div class="sk sk-swap"></div><div class="sk sk-field"></div></div><div class="sk sk-result"></div></div></div>
 
@@ -209,8 +222,10 @@
     </div>
   </footer>
   <script src="/assets/js/icons.js" defer></script>
-  <script src="/assets/js/converter.js" defer></script>
+  <script src="/assets/js/units.generated.js" defer></script>
+  <script src="/assets/js/explain.js" defer></script>
   <script src="/assets/js/webmcp.js" defer></script>
+  <script src="/assets/js/converter.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
