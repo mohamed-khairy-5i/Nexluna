@@ -1,0 +1,13 @@
+# SEO redirects (2026-10-17) — dead-but-indexed URLs recovered via GSC audit
+# old blog slugs (restructured blog) -> live equivalents
+/blog/cooking-weight-conversion     /blog/cooking-measurement-conversion.html   301
+/blog/cooking-weight-conversion.html /blog/cooking-measurement-conversion.html 301
+/blog/common-conversion-mistakes    /blog/                                      301
+/blog/common-conversion-mistakes.html /blog/                                    301
+/blog/real-estate-area-conversion   /blog/area-measurement-guide.html           301
+/blog/real-estate-area-conversion.html /blog/area-measurement-guide.html        301
+# old root converter aliases -> current converter pages
+/area-converter                     /converters/area.html                       301
+/area-converter.html                /converters/area.html                       301
+/weight-converter                   /converters/weight.html                     301
+/weight-converter.html              /converters/weight.html                     301
