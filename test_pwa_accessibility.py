@@ -15,7 +15,7 @@ manifest = (ROOT / "manifest.webmanifest").read_text(encoding="utf-8")
 assert 'rel="manifest"' in index
 assert 'data-pwa-install' in index
 assert 'beforeinstallprompt' in main and 'appinstalled' in main
-assert "nexluna-v7" in sw
+assert "nexluna-v8" in sw
 for asset in ("smartsearch.js", "webmcp.js", "units.generated.js", "explain.js", "embed.js", "converter.js", "locale.en.generated.js"):
     assert f"/assets/js/{asset}" in sw
 assert "'/en/'" in sw
