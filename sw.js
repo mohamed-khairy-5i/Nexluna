@@ -1,5 +1,5 @@
 /* Nexluna service worker — offline-first for visited pages + static assets. */
-const CACHE = 'nexluna-v6';
+const CACHE = 'nexluna-v7';
 const CORE = [
   '/',
   '/index.html',
