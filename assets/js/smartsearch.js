@@ -161,6 +161,8 @@
     // A leading "كم" with no explicit digit is the question word "how much", not kilometre.
     var hasDigit = tokens.some(function (t) { return /^-?\d+(\.\d+)?$/.test(t); });
     if (!hasDigit && (tokens[0] === 'كم' || tokens[0] === 'كام')) tokens[0] = '__q__';
+    // "how many X in Y" asks for X per one Y, so the conversion runs from Y to X.
+    var askedHowMany = !hasDigit && (tokens[0] === '__q__' || (tokens[0] === 'how' && tokens[1] === 'many'));
     var num = null, units = [];
     for (var i = 0; i < tokens.length;) {
       // number (allow decimals + leading sign)
@@ -181,6 +183,7 @@
     }
     if (!from) return null;
     if (num === null) num = 1; // "كم قدم في المتر" → assume 1
+    if (askedHowMany) { var swap = from; from = to; to = swap; }
     return { cat: from[0], from: from[1], to: to[1], value: num };
   }
 
