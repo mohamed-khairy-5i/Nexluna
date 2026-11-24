@@ -1,5 +1,5 @@
 /* Nexluna service worker — offline-first for visited pages + static assets. */
-const CACHE = 'nexluna-v7';
+const CACHE = 'nexluna-v8';
 const CORE = [
   '/',
   '/index.html',
@@ -24,7 +24,7 @@ const CORE = [
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE.map((u) => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (e) => {
